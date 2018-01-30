@@ -1,0 +1,1057 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{9DA48599-0FF0-5B27-6209-F6975F9E5594}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_1;UNITY_5_6;UNITY_5;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_VR;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Plugins\Android\Editor\UnityWebViewPostprocessBuild.cs" />
+     <Compile Include="Assets\Plugins\iOS\Editor\UnityWebViewPostprocessBuild.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Asset Types\Editor\AtlasAssetInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Asset Types\Editor\SkeletonDataAssetInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Editor\AssetDatabaseAvailabilityDetector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Editor\BoneFollowerInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Editor\Menus.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Editor\SkeletonAnimationInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Editor\SkeletonAnimatorInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Editor\SkeletonBaker.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Editor\SkeletonRendererInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Editor\SpineAttributeDrawers.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Editor\SpineEditorUtilities.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Editor\SpineInspectorUtility.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Modules\BoundingBoxFollower\Editor\BoundingBoxFollowerInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Modules\CustomMaterials\Editor\SkeletonRendererCustomMaterialsInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Modules\Ragdoll\Editor\SkeletonRagdoll2DInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Modules\Ragdoll\Editor\SkeletonRagdollInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Modules\SkeletonGraphic\Editor\SkeletonGraphicInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Modules\SkeletonRenderSeparator\Editor\SkeletonPartsRendererInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\Modules\SkeletonRenderSeparator\Editor\SkeletonRenderSeparatorInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\SkeletonUtility\Editor\SkeletonUtilityBoneInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\SkeletonUtility\Editor\SkeletonUtilityInspector.cs" />
+     <Compile Include="Assets\Plugins\spine-unity\SkeletonUtility\Editor\SkeletonUtilitySubmeshRendererInspector.cs" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_menu_item_view.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_fragment_submit_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_video_upload_tag_button.xml" />
+     <None Include="Assets\Plugins\spine-unity\Editor\Resources\SpineAssetDatabaseMarker.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\bd_wallet_sign_channel_space.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_adapter_task_list_item_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_following_addidicon_image_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_opengame_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_more_menu_user.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_outer_horizontal_gap.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_scancode_dimens.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_common_progress.xml" />
+     <None Include="Assets\Resources\data\Version.txt" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_gamesdk_neterror_retrybtn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_controller_account_login_baidu.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_content_upgrade_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_popup_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_message_selector.xml" />
+     <None Include="Assets\Plugins\spine-unity\Shaders\HiddenPass.shader" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_payment_bottom.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_czcard_land.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_card_credit_bind.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_ad_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_resume_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_omplay_frame.xml" />
+     <None Include="Assets\Plugins\Android\res\values\oml_attrs.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_account_icon_fold_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_blank.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_button_pause_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_btn_bottom_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_custom_progress_dialog_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_navigation_button_highlight.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_toast_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_download_buttonshape_selected.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_pwdpay_activity.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_activity_screenshot_edit.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_selector_actionnotice_bottomlink.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_activity_omplay.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_toast_account_welcome.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_activity_upload_complete.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_btn_card_big_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_bind_card_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_upload_tag_button_selector_switch.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_fragment_common_item_port.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_dialog_bt_left_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_share_dialog_copy_background_press.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_notification_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_close_button.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_bond_card_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omplay_button_counter.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_forum_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_scancode_colors.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_success_tip.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_balance_cashback_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_card_chongzhi.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_noti_system_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_card_cashcard_bind_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_account_manage_middle_selsetor.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_white_item_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\values\bd_game_strings.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_profile_header.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_customer_tab_indicator.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_pay_order_detail.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_select_user_image_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_cashcard_choose.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_actionnotice_toptitle.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_loading_progress.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_pay_info_dialog.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_launch_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_balance_rect_grey_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_base_bind.xml" />
+     <None Include="Assets\Plugins\Android\res\values\dk_strings.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_media_upload.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_more_menu_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_edittext_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_paypwd_tips.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_service_item_vip.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_yellow_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_uninstall_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_share_dialog_url_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_overlay_shortcut_bar.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_btn_card_big_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_dialog_cancel_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_message_button_text_color_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_btn_gray_font.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_dialog_button_selector_right.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_pwdfree_face_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_view_enough_pay.xml" />
+     <None Include="Assets\Plugins\Android\res\color\wallet_bank_card_add_btntext_color_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_dialog_unbind_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\dk_float_popwindow_out.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_more_menu_owner.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_neg_btn_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_actionnotice_h5_land.xml" />
+     <None Include="Assets\Plugins\Android\res\values\bdp_colors.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_video_upload_dialog.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_base_strings.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_lightapp_menu_sel_mid_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_frame_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_om_video_player.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_gray_d2d2d2_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_cashcoupon_item_bt_text_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_kucoin_nofix.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bd_wallet_menu_item_bg_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_bind_card_creditinfo_view.xml" />
+     <None Include="Assets\Plugins\Android\res\color\wallet_base_click_text_color.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_btn_switch_record_normal_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_omplay_button.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_miui_warning.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_bind_card_amountinfo_view.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_mytooldetailview_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_black_gradient.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_service_item_new.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\dk_iamgeview_rotate.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_home_indicators.xml" />
+     <None Include="Assets\Plugins\Android\res\values\bd_wallet_bool.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_custom_progress_blue.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_dialog_pay_result_notify.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_dialog_confirm.xml" />
+     <None Include="Assets\Plugins\Android\res\values\bdp_styles.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_view_custom_pay.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_lightapp_menu_sel_bottom_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\values-v14\omp_values-v14.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_custom_progress.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_login_baidu.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_back_dot_selected.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_customer_tab_text_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_small_gray_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_bind_card_userinfo_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_edit_text_board.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_safekeyboard_six_number_circle_black.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_filter_list_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_white_small_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\values\oml_strings.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_sms.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omplay_button_pressed.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_activity_confirm_pay.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_selector_intent.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_accountinfo_fix.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_accountinfo_nofix_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_back_default.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_move_heart_03.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bd_wallet_scancode_refresh.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_home_shape_indic_selected.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_payment_layout_activity_hint.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_latest.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_adapter_pay_baidu_bean_detail.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\ebpay_slide_to_right.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_load_more.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_bank_card_dialog_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_btn_switch_record_selected_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_lightapp_title_back_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_payment_layout_dialog_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_login_auto.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_dialog_button_pressed_right.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_pay_baidu_bean_detail.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_upload_complete.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_web_frame.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_slide_from_right.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_segment_radio_right_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_text_prize_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_payment_layout_dialog_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_back.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_customer_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_balance_empty_view_logo.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_focus_image_celllayout.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_dialog_balance_can_pay.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_upload_tag_image_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\ebpay_radio_button_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_task_detail_port.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_gray_border_white_fill_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_share_dialog_copy_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_btn_yellow_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_adapter_account_email_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_loading_view.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\oml_sign_in_fragment_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_seekbar_thumb.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_checkbox.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_user_upgrade.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_upload_tag_button_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_hint_fade_out_fade_in.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_float_big_bubble.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_btn_other_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_card_cashcard_bind.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_fragment_common_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_dialog_round_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_gifts_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\oml_searchbox_grey.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_white_circle.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_dialog_back_install.xml" />
+     <None Include="Assets\Plugins\Android\res\menu\omp_menu_omplay.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_ad_btn_text_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_tutorial_right_to_left.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_selected_user_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_download_buttonshape.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_gray_9b9b9b_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_dialog_bt_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_btn_hint_left_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_amount_no_selected_bg.xml" />
+     <None Include="Assets\Plugins\spine-unity\Modules\CustomMaterials\readme.txt" />
+     <None Include="Assets\Plugins\Android\res\color\dk_suspension_text_color_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_slide_down.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_errornotice_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_share_18183_normal.xml" />
+     <None Include="Assets\Plugins\Android\res\color\wallet_lightapp_title_btntext_color_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bd_wallet_image_check_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\values-hdpi\wallet_base_dimens.xml" />
+     <None Include="Assets\Plugins\Android\res\color\wallet_base_btn_sendsms_color_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_checkbox_kubi_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\color\wallet_base_dialog_btntext_color_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_item_more_image_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_plugin.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_base_config_strings.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_actionnotice_port.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_lightapp_menu_item_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_btn_switch_screenshot_selected_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_manager_activity_download_list_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_selector_btn_copy.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_balance_colors.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_black_up_gradient.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_activity_notices.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_selector_goprize.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_main_frame.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_tvcolor_completeuserinfo_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_video_item_tag_selected_button.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_btn_hint_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_view_voucher_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_bank_item_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_login_sapi_exception_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_amazing_column_square.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_details_like_image_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_top_info_bottom_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_account_tip_btn_bottom.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_dialog_leftbtn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_vip_introduce_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_bar_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_goodsinfo_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_upload_frame_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_task_detail_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_popup_buttons_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_account_manager_top_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_activity_watch_video.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_actionnotice.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_base_styles.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_user_customer_center.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_dialog_close_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_pause_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_dialog_close.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_white_border_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\color\dk_vpi_dark_theme.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_video_upload_tag_open_button.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_edit_text_board_for_nfc.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_floatview_landscape_h5.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_banner_vip.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_share_link_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_content_mytools_view_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_item_share_view_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_view_bank_card_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_dialog_getmsg_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_black_up_down_gradient.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_fade_in.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_bg_clear_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_dialog_dot_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_gifts_item_line.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_account_manage_top_selsetor.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_installgame_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_common_progress.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_setandconfirm_pwd.xml" />
+     <None Include="Assets\Plugins\Android\res\menu\omp_menu_video_editor.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_coupon_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_errornotice_port.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_title.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_body_home.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_custom_delete_confirm_dialog_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omplay_frame.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_text_color_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_dash_btn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_title_web.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_base_colors.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_draw_winner.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_segment_radio_middle_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omplay_button_startrecording.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_overlay_inner_edge_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_body_game_card.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_czcard.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_lightapp_menu_sel_top_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_dashed_shape_normal.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bd_wallet_sign_channel_list.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_manager_segment_control.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_icon_close_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_fragment_common_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\values\oml_dimens.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_wane_shape.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_dialog_bank_card_verify_phoneno.xml" />
+     <None Include="Assets\Plugins\Android\res\color\dk_btn_download_opentextcolor_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_balance_trans.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_bg_white_round_border.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_refresh_bar.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_bg_light_gray_round_no_padding.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_sendsms_btn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_introduce_lv_item_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_upload_frame_tag_background.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\dk_float_frameanimation_nomal_hint.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_tutorial_text_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_user_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\oml_unpressed_orange_button.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_scancode_title_back_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_dialog_notitle.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_item_game_card.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_regist_btn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_details_share_image_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_home_shape_red_point.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_result_notify_tip.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_safekeyboard_popupwindow.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_fragment_private_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_fragment_common_item_title.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_activity_line.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_actionnotice_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_copy_link_btn_selected.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_lightapp_webview.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_card_dimens.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_safekeyboard_six_number_rect_black.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\ebpay_slide_from_left.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_container.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bd_wallet_activity_pp.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_gifts_item_downbutton_uninstall_click_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_home_shape_indic_normal.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_diff_update_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_gifts_lv_item_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_text_copy_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_installing.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_screenshot_details.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_amount_no_selected_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_fade_out.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_home_indicators_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_small_loading_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_body_home_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_cashcoupon_line.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_button_play_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_notifier_for_incremental_updates.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_latest_filter_image_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omletblue_border_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\oml_btn_account_connect.xml" />
+     <None Include="Assets\Plugins\Android\res\color\dk_suspension_big_bubble_go_color_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_activity_video_player.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_title_back_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_white_border_black_alpha_fill_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\animator\omp_tutorial_click_finger.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_dialog_btn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_base_dimens.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_account_manage_bottom_selsetor.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_payment_layout_debitcard.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_loading_progress.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_message_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_overlay_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_preview_upload_button_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_body_bean_fix.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_gifts_lv_header.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_share_18183_selected.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_amazing_column_rounded.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_payment_item_game_amount.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_login_sapi_webview.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_btn_switch_close_normal_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_checkbox_baidubean_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_message_refresh_footer.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_btn_retry_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_name_other.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_status_bar_ongoing_event_progress_bar.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_stop_recording_button.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_stat_sys_download.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\oml_list_divider.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_gifts_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\values-zh\omp_values-zh.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_update_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_rotate_down.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_following.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_anim_loading_small_blue.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_pluginl_detail.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_scancode_bankinfo_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_fragment_submit_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_gift_progressbar_style.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_scale_heart.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_lightapp_menu_sel_1_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_history_item_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_btn_close_selector_2.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_download_buttonopen_shape.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_scancode_strings.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_profile_footer.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\oml_white_background.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\dk_slide_in_bottom.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_share_others_selected.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\oml_pressed_orange.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omplay_switch_background_active.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_dialog_suggestion_username.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_install_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bd_wallet_pwd_manager.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_seekbar_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_adapter_pay_order_detail.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_enter_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_network_loading.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_profile_user_header.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_info_btn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_safekeyboard_numkey_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_checkbox_bg_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_gamesdk_orange_button_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_numberbox_lv_item_land.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_activity_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_btn_left_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_fragment_private_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_gray_white_gradient.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_home_ids.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bd_wallet_empty_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_balance_charge.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_login_checkbox_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omletblue_round_background_press.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_base_customized.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_slide_to_right.xml" />
+     <None Include="Assets\Plugins\Android\res\values-zh-rCN\omp_values-zh-rCN.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_balancetrans_item_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_game_card.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_account_manager_middle_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_home_item_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_pwdpay_middle_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_dialog_button_normal.xml" />
+     <None Include="Assets\Plugins\Android\res\values-v14\styles.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_content_introduce_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omplay_switch_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_grid_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_balance_withdraw.xml" />
+     <None Include="Assets\Plugins\Android\res\values\ebpay_strings.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_history_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_downloadmanager_activity.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_login_91.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_dialog_round_corner.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\activity_main.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_corners_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_login_checkbox_selector_2.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paymode_layout_first.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_shape_video_upload_background_selector.xml" />
+     <None Include="Assets\Plugins\DOTween\DOTween50.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_message_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_name_other_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_btn_close_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_amount_selected_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_bank_card_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_mytrans_item_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_btn_back_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_dialog_loading.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_bind_phone_check_phone.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_mediaitem_loading_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_dialog_button_pressed_left.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_credit.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_webpay.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_account_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_gifts_lv_item_button_textcolor_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_retry_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omplay_button_takescreenshot.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_recommend_user.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_third_party_no_bind.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_edittext_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\values\wallet_balance_strings.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_message_content_bt_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_overflow.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_progress_loading_xml.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_content_mytools_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_list_item_button_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_credit_choose.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_service_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_historyfix_item_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_btn_blue_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_service_squared_item_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_white_border_red_fill_round_background.xml" />
+     <None Include="Assets\Resources\Animations\yu_600001\yu_600001.atlas.txt" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_big_bubble_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_dashed_shape_press.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_bind_phone.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_share_others_normal.xml" />
+     <None Include="Assets\Plugins\spine-unity\Shaders\Bones.shader" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_user_login_header.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_float_window_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\values-sw320dp\wallet_base_dimens.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_payment_layout_dialog_new_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_share_btn2_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_edittext_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_btn_dialog_close_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_btn_enough_pay_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_tips_dialog.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_btn_pay_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_red_notifier.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_bg_gray_round.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_user_shadow.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_user_login_shadow.xml" />
+     <None Include="Assets\Plugins\Android\res\color\dk_btn_download_opencolor_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bd_wallet_pwd_item_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_kucoin_fix.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_content_base_view.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_list_item_bond_card_select.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_fragment_common_item_type.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_select_user_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_dialog_bt_right_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_game_card_land.xml" />
+     <None Include="Assets\Plugins\Android\res\values-xxhdpi\wallet_base_dimens.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_manager_activity_download_fragment.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_tool_lv_prizecard_port.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_error_button_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_pager_sliding_background_tab.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_banner_notice_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_bind_card_bankinfo_view.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_view_six_pwd.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_draw_winner_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omletblue_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_user_prefecture_web.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_coupon_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_banner.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_main_vip.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\dk_float_frameanimation_nomal.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_seekbar_style.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_pwdfree_faces_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\values-v11\styles.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_error_button_background_press.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_dialog_verify_paypwd.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bd_wallet_sign_bank_info.xml" />
+     <None Include="Assets\Plugins\spine-unity\Modules\Ghost\Shaders\SkeletonGhost.shader" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_o2o_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_shape_button_omlet_blue_rounded_corner.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_point_lv_item_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_btn_orange_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_discount_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_tip_baidu_login.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_btn_gray_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\values\bdp_dimens.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_action_bar.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_progress_loading_anim.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_share_btn1_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_progressbar.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_list_unfold_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_activity_lv_item_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\values\dk_colors.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_slide_from_left.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_white_border_omletblue_fill_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_home_login_shape_default.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_item_game_amount.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_bottom_dialog_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_back_dot_normal.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_back_dot_selected_red.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_settings.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_common_progress_small.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bd_wallet_single_item_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_refresh_loading.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_white_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\values\oml_color.xml" />
+     <None Include="Assets\Plugins\DOTween\DOTween46.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_small_blue_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_dialog_extend.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_channel.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_controller_account_login_dk.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_body.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_tool_lv_chargecard_port.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_view_om_media_controller.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\dk_float_popwindow_in.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_video_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_details_more_image_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_dialog_image.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_copy_link_btn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_btn_pay_cancel_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_add_card_layout_for_selelctbindcard.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_filter_tag_header.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_download_cancelshape_clicked.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_green_5bcd78_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_accountinfo_fix_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\color\omp_tag_text_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_btn_right_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_gray_close_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_content_numberbox_view.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_content_base_view_land.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_rotate_up.xml" />
+     <None Include="Assets\Plugins\Android\res\values\omp_values.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_left_round_2sides.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paymode_item_card.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_video_preview.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_account_icon_verifycode_refresh_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_shape_view_border_light_gray.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_user_bottom_logo.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_layout_edit_dialog.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_select_bank_item_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_result_notify_account.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bd_wallet_logo_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bd_wallet_sign_channel_page.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_loading_progress_auto_login.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_btn_yellow_font.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_records_content.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_scancode_sel_bank_corners_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\ebpay_slide_to_left.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bd_wallet_activtiy_pwdfree.xml" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_tool_lv_chargecard_land.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_webview.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_actionnotice_h5_port.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_user_bottom_logo_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_gifts_item_downbutton_click_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_view_common_video_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\ebpay_list_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_manager_activity_download_list_header.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_more_menu_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_cashcard.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_account_manager_bottom_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_select_user_header.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_blank.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_btn_switch.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_floatview_custom_toast.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_view_fix_account.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_dismiss_dialog_anim.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_alpha_pwd_show.xml" />
+     <None Include="Assets\Plugins\Android\res\values\bdp_attrs.xml" />
+     <None Include="Assets\Plugins\Android\res\color\dk_suspension_big_bubble_close_color_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_item_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_fix_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_dialog_dot_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_amount_selected_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_main_vip_title.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_introduce_lv_item_port.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_btn_hint_right_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_custom_progress.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_balance_baizhuanfen_records_content.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_image_btn_unfold.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_refresh_loading_small.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_icon_checkbox_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_content_point_view_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_amazing_column_rounded_half_down.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_activity_signin.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_share_to_people.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_body_game_card_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_tool_lv_cashcard_port.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_omplay_button.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_payment_header.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_point_lv_item_port.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_login_dk.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_web_progressbar.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_payment_layout_dialog_new_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_btn.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_body_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_list_white_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_payment_item_game_card.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_back_icon_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_btn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_active_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_video_upload_tag_selected_button.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_profile_tab.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_safekeyboard_slide_from_down.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_content_point_view.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_activity_portrait.xml" />
+     <None Include="Assets\Plugins\spine-unity\Modules\SkeletonGraphic\Shaders\SkeletonGraphic.shader" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_task_list.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_background_tab.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_activity_lv_item_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_content_numberbox_view_land.xml" />
+     <None Include="Assets\Plugins\spine-unity\Shaders\Skeleton.shader" />
+     <None Include="Assets\Plugins\Android\res\drawable\oml_lets_do_it_button.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_scancode_show_code.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_contacts_icon.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_green_5bcd78_stroke_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_confirm_left_selector_2sides.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_body_game_card_smallcard.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_amazing_loading_progress.xml" />
+     <None Include="Assets\Plugins\Android\res\values\bd_wallet_strings.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_pay_info_dialog_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_errornotice_item_port.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_card_credit_bind_land.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_visitor_bind.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_not_baidu_bind.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_completeuserinfo_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\values\styles.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\dk_float_big_bubble_in.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_activity_pay_result_extra.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_preview_edit_button_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_btn_pay_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bd_wallet_activity_securitycenter.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_pwdfree_checkbox_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_message_content_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_upload_tag_image_selector_switch.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_changeaccount_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_alpha_pwd_hide.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_video_details.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_floatview_h5.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\ebpay_bg_checkbox_seletor.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_selector_actionnotice_close.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_account_manager_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_account_icon_unfold_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_filter_menu.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_lightapp_overflow_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_icon_logo_default.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_download_buttonshape_open.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_videos_by_tag.xml" />
+     <None Include="Assets\Plugins\Android\res\values\dk_styles.xml" />
+     <None Include="Assets\shader\getgery.shader" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_video_edit.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\ebpay_slide_from_right.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_seekbar_progress.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_move_heart_01.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_icon_text_clear_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_btn_switch_screenshot_normal_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\color\oml_clickable_cancel.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_progress_loading.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_omplay_tutorial.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_login_sapi_exception.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_slide_in.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_tool_lv_cashcard_land.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_balance_cashbackaccumulate.xml" />
+     <None Include="Assets\Plugins\Android\res\values\bdp_strings.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\dk_float_big_bubble_out.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_tooldetail_introduce_selsetor.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_gifts_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\raw\baidu_protocol.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_asset_item_vip.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_dialog_errornotice.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_amazing_loading_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\ebpay_textview_bg_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_back_grid_list.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_update_layout_dialog_base.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_textcolor_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_body_bean_nofix.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_view_bank_card_manage_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_filter_tag_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_add_card_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\color\wallet_pwdfree_faces_text_color.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_adapter_account_history_list_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_bind_phone_check_mail.xml" />
+     <None Include="Assets\Plugins\Android\res\xml\nfc_tech_filter.xml" />
+     <None Include="Assets\Plugins\Android\res\values\ebpay_styles.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_btn_switch_close_selected_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\animator\omp_tutorial_click_point.xml" />
+     <None Include="Assets\Plugins\Android\res\values-xhdpi\wallet_base_dimens.xml" />
+     <None Include="Assets\Plugins\DOTween\DOTween43.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\oml_button_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_loading_gray.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_modify_password.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_move_heart_02.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_pending_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_activity_welcome.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_bg_light_gray_round.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_selector_notice_close.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_btn_other_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_black_alpha_round_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_pwdpay_channel_activity_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_account_view_land.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_credit_land.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_account_manager.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_card_other.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_bank_card_dialog_content_layout.xml" />
+     <None Include="Assets\shader\getgery_clip.shader" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_account_icon_upgrade_close_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_btn_pay_order_list_gray_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_layout_mytooldetailview.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_suspension_btn_top_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_popular.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_select_pay_way_activity.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_shape_scrollbar.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_title_land.xml" />
+     <None Include="Assets\Plugins\Android\res\values-w820dp\omp_values-w820dp.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_progress_horizontal_yellow.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_dialog_bank_card_support.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_float_tab_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_draw_btn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_add_follow_user.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_font_blue_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_notification.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_back_install_normal.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_lightapp_action_bar.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_show_dialog_anim.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_o2o_item_vip.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_share_18183_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_suspension_window_view.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_cashcard_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_pointhistory_line.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_tip_upgrade_done.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_dialog_rightbtn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_adapter_task_list_item_port.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_copy_link_btn_normal.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_home_login_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_message_lv_item_landscape.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_point_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_safekeyboard_delkey_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_cashcoupon_bt_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_asset_item.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_menu_item_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_icon_back_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_dialog_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_account_register_baidu.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_pay_result_benefit.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_set_pwd.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\ebpay_pwd_checkbox_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_balance_main.xml" />
+     <None Include="Assets\Plugins\Android\res\values\dk_dimens.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_home_login_shape_pressed.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_layout_dialog_base.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_account_manage_selsetor.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_delete.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_completeuserinfo_land_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_view_controller_task_prepare.xml" />
+     <None Include="Assets\Plugins\DOTween\readme.txt" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_floatview_custom_toast.xml" />
+     <None Include="Assets\Plugins\Android\res\color\wallet_base_btntext_color_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_item_share_image_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_slide_to_left.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_point_portrait.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_fragment_private_item_title.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_activity_dialog_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_bottom.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_tutorial_button_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_actionnotice_bottomlink.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_back_install_press.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_screenshot_preview.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\oml_btn_contact_add.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_account_icon_code_refresh_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\values\strings.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_bg_actionnotice_bottomlink_press.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_card_game.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_update_complete_share_others_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\color\omp_tag_text_selector_switch.xml" />
+     <None Include="Assets\Plugins\spine-unity\Modules\SkeletonRenderSeparator\SkeletonRenderSeparator.txt" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_download_cancelshape.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\wallet_base_safekeyboard_slide_to_down.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_tool_lv_prizecard_land.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_btn_download_cancel_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_fragment_profile.xml" />
+     <None Include="Assets\Plugins\Android\res\values\dk_attrs.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_dialog_bank_card_manage.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_activity_pay_result.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_screenshot_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_paymode_credit_bind.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_view_merge_pay.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_filter_clear_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_share_background.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_paycenter_btn_bank_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_user_login_lan_header.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_icon_info_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_text_timepoint_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_message_lv_item_port.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_login_btn_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\ebpay_bg_checkbox_for_corner_coupon.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_layout_loading_dialog.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_cashcoupon_spinner_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_balance_trans_item.xml" />
+     <None Include="Assets\Plugins\spine-unity\Shaders\SkeletonLit.shader" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_outer_horizontal_seperator.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_segment_radio_left_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_dialog_button_selector_left.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_pay_body_credit_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_pwdfree_switch_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\wallet_base_loading.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_dialog_tip.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_noti_media_item.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_home_basic_item.xml" />
+     <None Include="Assets\Plugins\Android\res\anim\omp_rotator.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_icon_del_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_amazing_column_rounded_half.xml" />
+     <None Include="Assets\Plugins\Android\_AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\ebpay_layout_bind_card_cardinfo_view.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_icon_redpoint_bg.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_widget_expandable_text_layout.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_payment_btn_close_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_video_upload_frame_content_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_paycontent_set_verify_baidubean_pwd.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_numberbox_lv_item_port.xml" />
+     <None Include="Assets\Plugins\Android\res\menu\omp_menu_video_edit.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\dk_gifts_lv_item_landscape.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_goodsinfo.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_share_dialog_copy_background.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_paycenter_layout_accountinfo_nofix.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_image_btn_fold.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\omp_activity_video_editor.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\dk_ad_btn_close_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\values-mdpi\ebpay_dimens.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bdp_controller_account_login_91.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\bdp_bg_white_round.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\ebpay_selectbindcard_bg_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\drawable\omp_view_om_media_controller_share_check_selector.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\wallet_base_toast.xml" />
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TestRunner">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TreeEditor">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Analytics">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.HoloLens">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Purchasing">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/Editor/UnityEditor.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.VR">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.OSXStandalone.Extensions">
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>/Users/mac/project/unity/temp/V0.08/Assets/libs/ICSharpCode.SharpZipLib.dll</HintPath>
+ </Reference>
+ <Reference Include="protobuf-net">
+ <HintPath>/Users/mac/project/unity/temp/V0.08/Assets/libs/protobuf-net.dll</HintPath>
+ </Reference>
+ <Reference Include="SimpleJson">
+ <HintPath>/Users/mac/project/unity/temp/V0.08/Assets/libs/SimpleJson.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Users/mac/project/unity/temp/V0.08/Assets/Plugins/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>/Users/mac/project/unity/temp/V0.08/Assets/Plugins/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>/Users/mac/project/unity/temp/V0.08/Assets/Plugins/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>/Users/mac/project/unity/temp/V0.08/Assets/Plugins/DOTween/DOTween50.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>/Users/mac/project/unity/temp/V0.08/Assets/Plugins/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{1313926A-7D50-EFB3-9460-3BCFB3ECAC02}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

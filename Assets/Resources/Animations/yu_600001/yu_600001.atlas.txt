@@ -1,0 +1,76 @@
+
+yu_600001.png
+size: 128,32
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+yu_600001_beiqi
+  rotate: false
+  xy: 47, 16
+  size: 16, 14
+  orig: 16, 14
+  offset: 0, 0
+  index: -1
+yu_600001_fuqi
+  rotate: false
+  xy: 26, 13
+  size: 19, 17
+  orig: 19, 18
+  offset: 0, 0
+  index: -1
+yu_600001_guangyun
+  rotate: true
+  xy: 47, 2
+  size: 12, 11
+  orig: 13, 13
+  offset: 0, 1
+  index: -1
+yu_600001_shenti
+  rotate: false
+  xy: 2, 10
+  size: 22, 20
+  orig: 22, 22
+  offset: 0, 0
+  index: -1
+yu_600001_weiba01
+  rotate: false
+  xy: 83, 26
+  size: 18, 4
+  orig: 18, 5
+  offset: 0, 1
+  index: -1
+yu_600001_weiba02
+  rotate: false
+  xy: 26, 7
+  size: 19, 4
+  orig: 20, 4
+  offset: 0, 0
+  index: -1
+yu_600001_yanjing
+  rotate: false
+  xy: 103, 26
+  size: 5, 4
+  orig: 5, 4
+  offset: 0, 0
+  index: -1
+yu_600001_yuanhuan
+  rotate: true
+  xy: 96, 16
+  size: 8, 7
+  orig: 8, 7
+  offset: 0, 0
+  index: -1
+yu_600001_yuqi
+  rotate: false
+  xy: 65, 17
+  size: 16, 13
+  orig: 16, 13
+  offset: 0, 0
+  index: -1
+yu_600001_yuwei
+  rotate: true
+  xy: 83, 16
+  size: 8, 11
+  orig: 8, 11
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,4 @@
+verName=法师大作战
+verCode=1
+resVer=0.01
+apiName=fsdzz
