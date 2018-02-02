@@ -14,7 +14,7 @@ public class LoadUIPage : UIPage
     public LoadUIPage() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
     {
         //布局预制体
-        uiPath = "Prefab/UI/LoadUI/LoadUIPage";
+		uiPath = "Prefabs/UI/LoadUI/LoadUIPage";
 
     }
 

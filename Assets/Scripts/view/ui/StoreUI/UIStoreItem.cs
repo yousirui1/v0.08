@@ -24,7 +24,7 @@ public class UIStoreItem : MonoBehaviour
 		//this.transform.Find("item_bg").GetComponent<Image>().sprite = "累计"+ val.day+"日登录奖励";
 		//this.transform.Find("img_type").GetComponent<Image>().sprite = "累计"+ val.day+"日登录奖励";
 		this.transform.Find ("tx_itemhead").GetComponent<Text> ().text = val.name;
-		this.transform.Find("img_materials").GetComponent<Image>().sprite = TextureManage.getInstance().LoadAtlasSprite("Public/Atlases/Icon/General_icon","General_icon_"+0);
+		this.transform.Find("img_materials").GetComponent<Image>().sprite = TextureManage.getInstance().LoadAtlasSprite("RawImages/Public/Atlases/Icon/General_icon","General_icon_"+0);
 
 		switch (val.buy_type) {
 		case  0:  //立即购买

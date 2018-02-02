@@ -19,7 +19,7 @@ public class PublicUISetPage : UIPage
     public PublicUISetPage() : base(UIType.PopUp, UIMode.DoNothing, UICollider.Normal)
     {
         //布局预制体
-        uiPath = "Prefab/UI/PublicUI/PublicUISetPage";
+		uiPath = "Prefabs/UI/PublicUI/PublicUISetPage";
 
     }
 

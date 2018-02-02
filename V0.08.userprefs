@@ -1,12 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/view/ui/Test/MainDameUIPage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/view/UI/Public/PublicUIActivityPage.cs">
     <Files>
-      <File FileName="Assets/Scripts/logic/ValUpdateController.cs" Line="302" Column="1" />
-      <File FileName="Assets/Scripts/Main.cs" Line="23" Column="28" />
-      <File FileName="Assets/Scripts/view/ui/LoginUI/SplashUIPage.cs" Line="30" Column="3" />
-      <File FileName="Assets/Scripts/net/client/ChatConect.cs" Line="44" Column="19" />
-      <File FileName="Assets/Scripts/view/ui/Test/MainDameUIPage.cs" Line="42" Column="6" />
+      <File FileName="Assets/Scripts/view/UI/Public/Item/UIActivityItem.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/view/UI/Public/Item/UIEmailItem.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/view/UI/StoreUI/StoreUIPage.cs" Line="31" Column="20" />
+      <File FileName="Assets/Scripts/tools/ResourceMgr.cs" Line="33" Column="15" />
+      <File FileName="Assets/Scripts/view/UI/InfoUI/InfoUIMainPage.cs" Line="43" Column="44" />
+      <File FileName="Assets/Scripts/view/UI/TabUI/TabControl.cs" Line="73" Column="48" />
+      <File FileName="Assets/Scripts/val/PathObj.cs" Line="50" Column="43" />
+      <File FileName="Assets/Scripts/tools/TextureManage.cs" Line="106" Column="30" />
+      <File FileName="Assets/Scripts/view/UI/StoreUI/UIStoreItem.cs" Line="27" Column="126" />
+      <File FileName="Assets/Scripts/view/UI/Public/PublicUIActivityPage.cs" Line="56" Column="1" />
+      <File FileName="Assets/Scripts/net/webview/WebView.cs" Line="37" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

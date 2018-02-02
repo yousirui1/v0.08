@@ -21,7 +21,7 @@ public class AstrologyUIPage : UIPage
 	public AstrologyUIPage() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
 	{
 		//布局预制体
-		uiPath = "Prefab/UI/AstrologyUI/AstrologyUIMain";
+		uiPath = "Prefabs/UI/AstrologyUI/AstrologyUIMain";
 	}
 	public override void Refresh()
 	{

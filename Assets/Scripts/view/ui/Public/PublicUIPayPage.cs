@@ -13,7 +13,7 @@ public class PublicUIPayPage : UIPage
 	public PublicUIPayPage() : base(UIType.PopUp, UIMode.DoNothing, UICollider.WithBg)
 	{
 		//布局预制体
-		uiPath = "Prefab/UI/PublicUI/PublicUIPayPage";
+		uiPath = "Prefabs/UI/PublicUI/PublicUIPayPage";
 
 	}
 

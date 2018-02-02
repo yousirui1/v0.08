@@ -17,7 +17,7 @@ public class RoomUIPreparePage : UIPage
 	public RoomUIPreparePage() : base(UIType.PopUp, UIMode.DoNothing, UICollider.WithBg)
 	{
 		//布局预制体
-		uiPath = "Prefab/UI/RoomUI/RoomUIPreparePage";
+		uiPath = "Prefabs/UI/RoomUI/RoomUIPreparePage";
 
 	}
 

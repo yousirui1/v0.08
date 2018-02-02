@@ -31,7 +31,7 @@ public class PublicUIEmailPage : UIPage
 	public PublicUIEmailPage() : base(UIType.PopUp, UIMode.DoNothing, UICollider.WithBg)
 	{
 		//布局预制体
-		uiPath = "Prefab/UI/PublicUI/PublicUIEmail";
+		uiPath = "Prefabs/UI/PublicUI/PublicUIEmail";
 
 	}
 

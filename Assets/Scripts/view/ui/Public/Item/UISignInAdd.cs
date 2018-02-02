@@ -24,7 +24,7 @@ public class UISignInAdd : MonoBehaviour
 		this.transform.Find("item_tx").GetComponent<Text>().text = "累计"+ val.day+"日登录奖励";
 		string[] rewards = val.reward.Split (':');
 		this.transform.Find("img/tx_count").GetComponent<Text>().text = "x"+rewards[1];
-		this.transform.Find("img").GetComponent<Image>().sprite = TextureManage.getInstance().LoadAtlasSprite("Public/Atlases/Icon/General_icon","General_icon_"+0);
+		this.transform.Find("img").GetComponent<Image>().sprite = TextureManage.getInstance().LoadAtlasSprite("RawImages/Public/Atlases/Icon/General_icon","General_icon_"+0);
 
 
 		/*

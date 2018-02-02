@@ -28,7 +28,7 @@ public class StoreUIPage : UIPage
 	public StoreUIPage() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
 	{
 		//布局预制体
-		uiPath = "Prefab/UI/StoreUI/StoreUIMain";
+		uiPath = "Prefabs/UI/StoreUI/StoreUIMain";
 	}
 	public override void Refresh()
 	{

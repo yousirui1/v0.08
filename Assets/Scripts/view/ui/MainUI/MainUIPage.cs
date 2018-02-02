@@ -15,7 +15,7 @@ public class MainUIPage : UIPage
     public MainUIPage() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
     {
         //布局预制体
-        uiPath = "Prefab/UI/MainUI/MainUIPage";
+		uiPath = "Prefabs/UI/MainUI/MainUIPage";
     }
    
 

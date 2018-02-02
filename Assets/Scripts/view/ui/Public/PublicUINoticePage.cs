@@ -18,7 +18,7 @@ public class PublicUINotice : UIPage
 
     public PublicUINotice() : base(UIType.Normal, UIMode.DoNothing, UICollider.None)
     {
-		uiPath = "Prefab/UI/PublicUI/Notice";
+		uiPath = "Prefabs/UI/PublicUI/Notice";
     }
 
     public override void Awake(GameObject go)

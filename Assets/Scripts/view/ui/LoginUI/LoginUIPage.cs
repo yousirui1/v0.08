@@ -24,7 +24,7 @@ public class LoginUIPage : UIPage
 	public LoginUIPage() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
 	{
 		//布局预制体
-		uiPath = "Prefab/UI/LoginUI/LoginUIPage";
+		uiPath = "Prefabs/UI/LoginUI/LoginUIPage";
 
 	}
 

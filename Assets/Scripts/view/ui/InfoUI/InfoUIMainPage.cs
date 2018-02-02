@@ -29,7 +29,7 @@ public class InfoUIMainPage : UIPage
 	public InfoUIMainPage() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
 	{
 		//布局预制体
-		uiPath = "Prefab/UI/InfoUI/InfoUIMainPage";
+		uiPath = "Prefabs/UI/InfoUI/InfoUIMainPage";
 
 	}
 

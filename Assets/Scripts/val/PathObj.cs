@@ -47,7 +47,7 @@ public class PathObj  {
 
 	#region UI
 
-	public const string info_panel = "Prefab/UI/TabUI/info/panel/Panel";
+	public const string info_panel = "Prefabs/UI/TabUI/info/panel/Panel";
 
 	#endregion
 }

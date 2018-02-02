@@ -21,7 +21,7 @@ public class SplashUIPage : UIPage
 	public SplashUIPage() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
 	{
 		//布局预制体
-		uiPath = "Prefab/UI/LoginUI/SplashUIPage";
+		uiPath = "Prefabs/UI/LoginUI/SplashUIPage";
 
 	}
 

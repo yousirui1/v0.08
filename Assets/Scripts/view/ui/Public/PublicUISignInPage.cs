@@ -36,7 +36,7 @@ public class PublicUISignInPage : UIPage
 	public PublicUISignInPage() : base(UIType.PopUp, UIMode.DoNothing, UICollider.WithBg)
 	{
 		//布局预制体
-		uiPath = "Prefab/UI/PublicUI/PublicUICheck";
+		uiPath = "Prefabs/UI/PublicUI/PublicUICheck";
 
 	}
 

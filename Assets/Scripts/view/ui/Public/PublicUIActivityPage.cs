@@ -34,7 +34,7 @@ public class PublicUIActivityPage : UIPage
 	public PublicUIActivityPage() : base(UIType.PopUp, UIMode.DoNothing, UICollider.WithBg)
 	{
 		//布局预制体
-		uiPath = "Prefab/UI/PublicUI/PublicUIActivity";
+		uiPath = "Prefabs/UI/PublicUI/PublicUIActivity";
 
 	}
 
@@ -53,9 +53,9 @@ public class PublicUIActivityPage : UIPage
 		}
 
 
-		mList = this.transform.Find("content/tabcontrol/Panels/Panel(Clone)").gameObject;
+		mList = this.transform.Find("content/tabcontrol/Panels/panel0").gameObject;
 
-		mItem = this.transform.Find("content/tabcontrol/Panels/Panel(Clone)/Viewport/Content/item").gameObject;
+		mItem = this.transform.Find("content/tabcontrol/Panels/panel0/Viewport/Content/item").gameObject;
 		mItem.SetActive(false);
 
 		//web页面

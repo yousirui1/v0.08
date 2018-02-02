@@ -17,7 +17,7 @@ public class PublicUIRank : UIPage
 
 	public PublicUIRank() : base(UIType.Normal, UIMode.DoNothing, UICollider.None)
 	{
-		uiPath = "Prefab/UI/PublicUI/PublicUIRank";
+		uiPath = "Prefabs/UI/PublicUI/PublicUIRank";
 	}
 
 	public override void Awake(GameObject go)

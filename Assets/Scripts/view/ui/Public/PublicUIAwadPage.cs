@@ -12,7 +12,7 @@ public class PublicUIAwadPage : UIPage
     public PublicUIAwadPage() : base(UIType.PopUp, UIMode.DoNothing, UICollider.WithBg)
     {
         //布局预制体
-        uiPath = "Prefab/UI/PublicUI/PublicUIAwadPage";
+		uiPath = "Prefabs/UI/PublicUI/PublicUIAwadPage";
 
     }
 

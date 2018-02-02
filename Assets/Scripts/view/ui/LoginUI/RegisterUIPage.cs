@@ -16,7 +16,7 @@ public class RegisterUIPage : UIPage
     public RegisterUIPage() : base(UIType.PopUp, UIMode.DoNothing, UICollider.WithBg)
     {
         //布局预制体
-        uiPath = "Prefab/UI/LoginUI/RegisterUIPage";
+		uiPath = "Prefabs/UI/LoginUI/RegisterUIPage";
 
     }
 

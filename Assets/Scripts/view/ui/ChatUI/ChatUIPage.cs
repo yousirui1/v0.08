@@ -15,7 +15,7 @@ public class ChatUIPage : UIPage
     public ChatUIPage() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
     {
         //布局预制体
-        uiPath = "Prefab/UI/ChatUI/ChatUIMainPage";
+		uiPath = "Prefabs/UI/ChatUI/ChatUIMainPage";
 
     }
 
