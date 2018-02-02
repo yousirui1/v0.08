@@ -69,7 +69,7 @@ namespace tpgm
             string path = "";
             try
             {
-				path = SavedContext.getExternalPath("Jsonfiles/" + valFileName);
+				path = SavedContext.getExternalPath("data/" + valFileName);
                 //string path = SavedContext.getExternalPath("data/val_signIn_15.json");
                 string text = File.ReadAllText(path, Encoding.UTF8);
                 //Log.d<ValUpdateLayer>("json: " + text);

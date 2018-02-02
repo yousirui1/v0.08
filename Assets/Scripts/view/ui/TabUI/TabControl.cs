@@ -66,11 +66,14 @@ public class TabControl : MonoBehaviour
 
 
 		if (panelPath != null)
-			panelPrefab = ResourceMgr.Instance ().Load<GameObject> (panelPath+id ,false) as GameObject;
+			panelPrefab = ResourceMgr.Instance ().Load<GameObject> (panelPath + id, false) as GameObject;
+		else {
+			
+		}
 		entrie.panel = Instantiate(panelPrefab) as GameObject;
 		entrie.panel.transform.SetParent(panelContainer.transform);
 		entrie.panel.transform.localScale = Vector3.one;
-		//entrie.panel.transform.name = "panel"+id;
+		entrie.panel.transform.name = "panel"+id;
 		//entrie.panel.transform.localPosition = new Vector3(entrie.panel.transform.GetComponent<RectTransform> ().sizeDelta.y/2,0,0);
 		entrie.panel.transform.localPosition = Vector3.zero;
 

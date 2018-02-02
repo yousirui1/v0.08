@@ -12,7 +12,7 @@ using tpgm;
 **************************************/
 
 public class Shadow  {
-	#if false
+
     //移动方向
     private int[,] direction = new int[9, 2] { {0,0 },{0, -1},{1, -1},{1, 0},{1, 1},
     {0, 1},{-1, 1},{-1, 0},{-1, -1}};
@@ -225,6 +225,6 @@ public class Shadow  {
             return b;
     }
 
-	#endif
+
 
 }

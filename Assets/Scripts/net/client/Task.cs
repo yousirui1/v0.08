@@ -12,7 +12,6 @@ using tpgm;
 
 public class Task
 {
-	#if false
 	public enum ArgNum
 	{
 		AN_NONE,
@@ -90,7 +89,6 @@ public class Task
 			break;
 		}
 	}
-	#endif
 }
 
 

@@ -195,7 +195,7 @@ public class PackageUIPage : UIPage
 
 
 		//定时器
-		UIRoot.Instance.StartCoroutine(Timer());
+		//UIRoot.Instance.StartCoroutine(Timer());
 
 		//初始化
 		Init();

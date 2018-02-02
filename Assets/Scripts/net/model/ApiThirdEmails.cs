@@ -46,14 +46,14 @@ namespace tpgm
 	}
 
 	//Json arr 邮件列表
-	public class JsonEmailList
+	public class JsonThirdEmail
 	{
 		public string id ;
 		public int status;
 		public string rewards;
 		public string title;   
 		public string content;
-		public string createData;
+		public string createDate;
 		public string loseTime;
 	}
 }

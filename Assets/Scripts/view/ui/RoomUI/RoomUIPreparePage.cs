@@ -6,13 +6,14 @@ using tpgm.UI;
 using tpgm;
 using DG.Tweening;
 using SimpleJson;
+using UnityEngine.SceneManagement;
 
 public class RoomUIPreparePage : UIPage
 {
 	private const string TAG = "RoomUIPreparePage";
 	Coroutine coroutine;
 
-
+	GameObject tiemObj = null;
 	public RoomUIPreparePage() : base(UIType.PopUp, UIMode.DoNothing, UICollider.WithBg)
 	{
 		//布局预制体
@@ -36,6 +37,7 @@ public class RoomUIPreparePage : UIPage
 
 
 		//ClientMgr.Instance().onSend("area.gloryHandler.match",jsMsg);
+		tiemObj = this.transform.Find("content/tx_time").gameObject;
 
 		//定时器
 		coroutine = UIRoot.Instance.StartCoroutine(Timer());
@@ -54,21 +56,24 @@ public class RoomUIPreparePage : UIPage
 	private int green = 0;
 
 	int count =0;
+	int time =0 ;
 	public override void Refresh()
 	{
-		Debug.Log (count);
+		//Debug.Log (count);
 		count++;
+		time++;
+		tiemObj.GetComponent<Text> ().text = ""+time;
 		if (ConectData.Instance.start_groups != null) {
 			GameObject item;
 			foreach (UDGroup.Group player in ConectData.Instance.start_groups) {
 				bool isFind = false;
 				for (int i = 0; i < 9; i++) {
 					item = this.gameObject.transform.Find ("content/player_groups").transform.GetChild (i).gameObject;
-					Debug.Log ("count"+ConectData.Instance.start_groups.Count);
-					Debug.Log (item.name);
+					//Debug.Log ("count"+ConectData.Instance.start_groups.Count);
+					//Debug.Log (item.name);
 					//Debug.Log (player.uid);
 					if (item.name == player.uid) {
-						Debug.Log ("isFind");
+						//Debug.Log ("isFind");
 						isFind = true;	
 						break;
 					}
@@ -77,8 +82,15 @@ public class RoomUIPreparePage : UIPage
 					//Debug.Log ("is not Find");
 					//Debug.Log (player.group);
 					AddNewUserItem (player.uid, player.head, int.Parse (player.group.Substring (player.group.Length - 1)));
+
+
 				}
 			}
+		}
+		if (time == 5) {
+			UIRoot.Instance.StopCoroutine(coroutine);
+			//SceneManager.LoadScene("Game");
+			Application.LoadLevel("Game");
 		}
 
 

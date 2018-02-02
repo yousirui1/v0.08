@@ -27,7 +27,7 @@ public  class UISkillPage : UIPage {
 
 		showObj1.GetComponent<Text>().text = "1";
 		showObj2.transform.Find ("Text").GetComponent<Text> ().text = "2";
-		UIRoot.Instance.StartCoroutine(Timer());
+		//UIRoot.Instance.StartCoroutine(Timer());
 	}
 
 	//定时器

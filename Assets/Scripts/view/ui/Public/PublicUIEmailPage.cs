@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using DG.Tweening;
 using tpgm.UI;
 using tpgm;
 
@@ -15,7 +16,16 @@ using tpgm;
 public class PublicUIEmailPage : UIPage
 {
 	private const string TAG = "ChatUIPage";
+	
+	GameObject Item = null;
+	GameObject List = null;
 
+	GameObject Desc = null;
+
+	//当前选择的item
+	UIEmailItem currentItem = null;
+
+	List<UIEmailItem> Items = new List<UIEmailItem>();
 
 	Controller m_controller;
 	public PublicUIEmailPage() : base(UIType.PopUp, UIMode.DoNothing, UICollider.WithBg)
@@ -27,51 +37,100 @@ public class PublicUIEmailPage : UIPage
 
 	public override void Awake(GameObject go)
 	{
-		/*ItemAwad awad = (ItemAwad)this.data;
-
-		this.gameObject.transform.Find("content/img_awad0").GetComponent<Image>().sprite = ResourceMgr.Instance().Load<Sprite>("Public/Item/Awad/awad" + awad.id, false);
-
-		this.gameObject.transform.Find("content/tx_awad0").GetComponent<Text>().text = ""+awad.num;
-
-		ConectData.Instance.userInfo.gold += awad.num;
-		//child.GetComponent<SpriteRenderer>().sprite =
-		*/
 		m_controller = new Controller (this);
 
 		m_controller.reqThirdEmails (false);
+
+
+		Desc = this.gameObject.transform.Find("content/group_msg").gameObject;
+		Desc.SetActive (false);
 
 		this.gameObject.transform.Find("content/btn_back").GetComponent<Button>().onClick.AddListener(() =>
 		{
 			// 隐藏
 			Hide();
 		});
-		ValTableCache valCache = getValTableCache ();
+		
 
-		Dictionary<int, ValFish> valDict = valCache.getValDictInPageScopeOrThrow<ValFish>(m_pageID, ConstsVal.val_fish);
-		ValFish gval = ValUtils.getValByKeyOrThrow(valDict,100001);
-		Debug.Log ("asdasd" + gval.name);
 	}
 
 
 
 
 
+	private void addItem(List<JsonThirdEmail> email_list)
+	{
+		List = this.transform.Find("content/bg_email/panel").gameObject;
+		Item = this.transform.Find("content/bg_email/panel/Viewport/Content/item").gameObject;
+		Item.SetActive(false);
+
+		for (int i = 0; i < email_list.Count; i++) {
+			GameObject go = GameObject.Instantiate(Item) as GameObject;
+			go.transform.SetParent(Item.transform.parent);
+			go.transform.localScale = Vector3.one;
+			go.SetActive(true);
+
+			UIEmailItem item = go.AddComponent<UIEmailItem>();
+			item.Refresh(email_list[i]);
+			Items.Add(item);
+			
+			go.AddComponent<Button>().onClick.AddListener(OnClickItem);
+		}
+	}
+
+	//邮件详情隐藏
+	public override void Hide()
+	{
+		for(int i =0; i<Items.Count; i++)
+		{
+			GameObject.Destroy(Items[i].gameObject);
+		}
+		Items.Clear();
+
+		this.gameObject.SetActive(false);
+
+	}
+
+	private void OnClickItem()
+	{
+		UIEmailItem item = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<UIEmailItem>();
+
+		ShowDesc(item);
+	}
+
+	//显示详细信息
+	private void ShowDesc(UIEmailItem item)
+	{
+		currentItem = item;
+		Desc.SetActive(true);
+		Desc.transform.localPosition = new Vector3(300f, Desc.transform.localPosition.y,Desc.transform.localPosition.z);
+	
+
+		Desc.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0f, 0f), 0.25f, true);
+		RefreshDesc(item);
+			
+
+	}
+
+	//更新详细信息
+	private void RefreshDesc(UIEmailItem item)
+	{
+		Desc.transform.Find("tx_title").GetComponent<Text>().text = item.data.title;	
+		Desc.transform.Find("tx_desc").GetComponent<Text>().text = item.data.content;	
+
+
+		Desc.transform.Find ("btn_draw").GetComponent<Button> ().onClick.AddListener (() => {
+			
+		});
+
+	}		
+	
+
+	
+
 	protected override void loadRes(TexCache texCache, ValTableCache valCache)
 	{
 		
-		valCache.markPageUseOrThrow<ValFish> (m_pageID, ConstsVal.val_fish);
-		//valCache.markPageUseOrThrow<ValFish> (m_pageID, ConstsVal.val_fish);
-
-		//valCache.markPageUseOrThrow<ValSignIn7> (m_pageID, ConstsVal.val_signIn7);
-
-		//valCache.markPageUseOrThrow<ValSignInAdd> (m_pageID, ConstsVal.val_signInAdd);
-
-		//valCache.markPageUseOrThrow<ValGlobal> (m_pageID, ConstsVal.val_global);
-		/*valCache.markPageUseOrThrow<ValFish>(m_pageID, ConstsVal.val_fish);
-		Dictionary<int, ValFish> valDict = valCache.getValDictInPageScopeOrThrow<ValFish>(m_pageID, ConstsVal.val_fish);
-		ValFish gval = ValUtils.getValByKeyOrThrow(valDict,100001);
-		Debug.Log ("asdasd" + gval.name);*/
-
 
 	}
 
@@ -80,7 +139,7 @@ public class PublicUIEmailPage : UIPage
 
 	}
 
-	class Controller : BaseController<RegisterUIPage>, NetHttp.INetCallback
+	class Controller : BaseController<PublicUIEmailPage>, NetHttp.INetCallback
 	{
 		NetHttp m_netHttp;
 		PublicUIEmailPage m_email;
@@ -153,7 +212,9 @@ public class PublicUIEmailPage : UIPage
 					switch (resp.m_code) {
 					case 200:
 						{
+							List<JsonThirdEmail> email_list= SimpleJson.SimpleJson.DeserializeObject<List<JsonThirdEmail>> (resp.m_emailList);
 							Debug.Log (resp.m_emailList);
+							m_email.addItem (email_list);
 						}
 						break;
 

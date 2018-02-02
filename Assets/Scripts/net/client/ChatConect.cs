@@ -6,7 +6,8 @@ using UnityEngine.UI;
 using Pomelo.DotNetClient;
 using SimpleJson;
 using System.Threading;
-
+using Newtonsoft.Json;
+using Newtonsoft;
 using tpgm;
 
 /**************************************
@@ -18,7 +19,6 @@ using tpgm;
 
 public class ChatConect : MonoBehaviour
 {
-	#if false
 #region Define
     private static ChatConect instance = null;
 
@@ -26,7 +26,7 @@ public class ChatConect : MonoBehaviour
     private List<string> UserNameList = new List<string>();
 
 
-	EventMgr eventObj ;
+	EventManage eventObj ;
    
     
 
@@ -42,7 +42,6 @@ public class ChatConect : MonoBehaviour
 	void Awake()
 	{
 		instance = this;
-
 	}
 
   
@@ -55,7 +54,7 @@ public class ChatConect : MonoBehaviour
         if (mTaskExecutor == null)
             mTaskExecutor = gameObject.AddComponent<TaskExecutor>();
 
-		eventObj = GameObject.Find("EventSystem").GetComponent<EventMgr>() as EventMgr;
+		eventObj = GameObject.Find("EventSystem").GetComponent<EventManage>() as EventManage;
 			
         //注册网络事件用于接收
         InitNetEvent();
@@ -87,9 +86,9 @@ public class ChatConect : MonoBehaviour
     //加入房间请求
     void onJoin()
     {
-        if (null != ConectData.Instance.pClient)
+		if (null != SavedContext.s_client)
         {
-            ConectData.Instance.pClient.request("chat.roomHandler.join", (data) =>
+			SavedContext.s_client.request("chat.roomHandler.join", (data) =>
             {
 
                 Debug.Log("onJoin" + data);
@@ -125,7 +124,7 @@ public class ChatConect : MonoBehaviour
             message["skill"] = entite.skill;
             message["hp"] = entite.hp;
             message["score"] = entite.score;
-            ConectData.Instance.pClient.request("chat.roomHandler.move", message, (data) =>
+			SavedContext.s_client.request("chat.roomHandler.move", message, (data) =>
             {
                
             });
@@ -142,11 +141,11 @@ public class ChatConect : MonoBehaviour
     {
         if (null != ConectData.Instance.pClient)
         {
-            ConectData.Instance.pClient.request("chat.roomHandler.leave", (data) =>
+			SavedContext.s_client.request("chat.roomHandler.leave", (data) =>
             {
                 Debug.Log("OnApplicationQuit" + data);
             });
-            ConectData.Instance.pClient.disconnect();
+			SavedContext.s_client.disconnect();
         }
         else
         {
@@ -164,12 +163,12 @@ public class ChatConect : MonoBehaviour
 
         Debug.Log("InitNetEvent");
 
-        PomeloClient pClient = ConectData.Instance.pClient;
+		PomeloClient pClient = SavedContext.s_client;
 
         if (pClient != null)
         {
             pClient.on("add", (data) => {
-                Debug.Log("InitNetEvent onAdd");
+                Debug.Log("InitNetEvent onAdd"+data);
                 onUserAdd(data);
 
             });
@@ -202,7 +201,7 @@ public class ChatConect : MonoBehaviour
 
     void onUserAdd(JsonObject data)
 	{
-     	Debug.Log("onUserAdd");	 
+     	Debug.Log("onUserAdd"+data);	 
 	}
    
 
@@ -230,5 +229,4 @@ public class ChatConect : MonoBehaviour
 
 
     #endregion
-	#endif
 }

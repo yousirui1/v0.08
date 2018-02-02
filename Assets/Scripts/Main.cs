@@ -13,13 +13,16 @@ public class Main : MonoBehaviour {
 		//主线程检查并启动
 		MainLooper.checkSetup ();
 		//设置数据存储目录
-		SavedContext.setup ("game_Data");
+		SavedContext.setup ("tpgm");
 
 		//远程打印
 		NetLog.Instance();
 
+		//Debug.Log (AppUtils.GetVerStr());
 
-		UIPage.ShowPage<LoginUIPage> ();
+		//PrefValUpdate.clear ();
+
+		UIPage.ShowPage<SplashUIPage> ();
 	}
 	
 	// Update is called once per frame

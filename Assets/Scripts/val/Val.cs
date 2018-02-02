@@ -269,6 +269,25 @@ namespace tpgm
 		public List<Friend> friends;
 	}
 
+
+	public class UDStore 
+	{
+		public class Materials
+		{
+			public string nickname;
+			public string uid;
+			public int gender; 	//性别
+			public int head;     //头像
+			public int level;		//段位
+			public int status;		//状态 1：在线，2：离线，3：组队中，4：匹配中，5：战斗中
+
+
+		}
+
+	}
+
+
+
 	public class UDActivity
 	{
 		public class Activity

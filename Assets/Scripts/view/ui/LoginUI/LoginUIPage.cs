@@ -43,6 +43,7 @@ public class LoginUIPage : UIPage
 
 		this.gameObject.transform.Find("btn_register").GetComponent<Button>().onClick.AddListener(() =>
 			{
+				UIRoot.Instance.StopCoroutine(coroutine);
 				// 注册
 				UIPage.ShowPage<RegisterUIPage>();
 			});
@@ -95,7 +96,6 @@ public class LoginUIPage : UIPage
 			if (index >= stringArr.Length)
 				index = 0;
 		} else {
-			//UIPage.ShowPage<PublicUICheckPage> ();
 			toastObj.SetActive(false);
 			UIPage.ShowPage<MainUIPage> ();
 			UIRoot.Instance.StopCoroutine(coroutine);

@@ -40,9 +40,9 @@ public class InfoUIMainPage : UIPage
 
 		tabControl = this.transform.Find ("tabcontrol").GetComponent<TabControl> () as TabControl;
 
-		tablist.Add (new TabIndex(0,"账号", Path.info_panel));
-		tablist.Add (new TabIndex(1,"段位", Path.info_panel));
-		tablist.Add (new TabIndex(2,"数据", Path.info_panel));
+		tablist.Add (new TabIndex(0,"账号", PathObj.info_panel));
+		tablist.Add (new TabIndex(1,"段位", PathObj.info_panel));
+		tablist.Add (new TabIndex(2,"数据", PathObj.info_panel));
 
 		for (int i = 0; i < tablist.Count; i++) {
 			tabControl.CreateTab (tablist[i].id, tablist[i].tabname, tablist[i].panelPath);

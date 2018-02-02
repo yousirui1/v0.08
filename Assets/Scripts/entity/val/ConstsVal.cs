@@ -25,6 +25,10 @@ namespace tpgm
 
 		public const string val_fish = "val_fish.json";
 
+		public const string val_astrology = "val_astrology.json";
+
+		public const string val_store = "val_store.json";
+
 		/*
 		public const string val_activity = "val_activity.json";
 

@@ -1,22 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/app/cache/ValLoader.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/view/ui/Test/MainDameUIPage.cs">
     <Files>
-      <File FileName="Assets/Scripts/view/ui/Public/PublicUIEmailPage.cs" Line="62" Column="30" />
-      <File FileName="Assets/Scripts/view/ui/MainUI/MainUIPage.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/net/model/ApiThirdGetData.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/entity/val/ConstsVal.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/entity/val/ValUtils.cs" Line="327" Column="9" />
-      <File FileName="Assets/Scripts/app/cache/ValLoader.cs" Line="65" Column="30" />
-      <File FileName="Assets/Scripts/entity/val/ValFish.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/view/UIFramework/UIPage.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/app/SavedContext.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/app/cache/ValTableCache.cs" Line="146" Column="75" />
+      <File FileName="Assets/Scripts/logic/ValUpdateController.cs" Line="302" Column="1" />
+      <File FileName="Assets/Scripts/Main.cs" Line="23" Column="28" />
+      <File FileName="Assets/Scripts/view/ui/LoginUI/SplashUIPage.cs" Line="30" Column="3" />
+      <File FileName="Assets/Scripts/net/client/ChatConect.cs" Line="44" Column="19" />
+      <File FileName="Assets/Scripts/view/ui/Test/MainDameUIPage.cs" Line="42" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/mac/project/unity/temp/V0.08/Assets/Scripts/view/ui/MainUIPage.cs" line="161" column="1" />
+      <Breakpoint file="/Users/mac/project/unity/temp/V0.08/Assets/Scripts/logic/ValUpdateController.cs" line="166" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

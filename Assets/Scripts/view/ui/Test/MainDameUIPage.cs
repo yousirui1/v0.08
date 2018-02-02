@@ -6,7 +6,7 @@ using tpgm;
 using tpgm.UI;
 using Pomelo.DotNetClient;
 using SimpleJson;
-using Spine.Unity;
+//using Spine.Unity;
 
 public class MainDameUIPage : UIPage
 {
@@ -19,6 +19,30 @@ public class MainDameUIPage : UIPage
 		uiPath = "Prefab/ui/MainUI/MainUIPage";
 
 	}
+
+
+	protected override void loadRes(TexCache texCache, ValTableCache valCache)
+	{
+
+		/*{//贴图和动画
+			texCache.markPageUseTex (m_pageID, "prefab/fish/yu_600001");
+			texCache.pageBeginUseIconGlobal (m_pageID);
+		}
+
+		//json 数值表
+		{
+			valCache.markPageUseOrThrow<ValFish> (m_pageID, ConstsVal.val_fishWiKi);
+		}*/
+	}
+
+	protected override void unloadRes(TexCache texCache, ValTableCache valCache)
+	{
+		/*foreach (var item in m_loadedFishTexPathList) {
+			texCache.unmarkPageUse ("1", item);
+		}*/
+	}
+
+	#if false
 	TexCache.ResLoadDoneProxy m_resLoadDoneProxy;
 	//记录加载了的资源路径
 	List<string> m_loadedFishTexPathList = new List<string>();
@@ -27,7 +51,7 @@ public class MainDameUIPage : UIPage
 	{
 
 		//定时器
-		UIRoot.Instance.StartCoroutine(Timer());
+		//UIRoot.Instance.StartCoroutine(Timer());
 
 		Debug.Log ("" + m_pageID);
 
@@ -356,5 +380,9 @@ public class MainDameUIPage : UIPage
 
 		}
 
+
+
 	}
+
+	#endif
 }

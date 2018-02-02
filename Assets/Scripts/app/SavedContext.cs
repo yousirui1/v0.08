@@ -5,7 +5,6 @@ using System.Collections;
 //#好像spring那种di，也有叫ApplicationContext的东西；
 using System;
 using Pomelo.DotNetClient;
-using Umeng;
 
 
 namespace tpgm
@@ -22,6 +21,8 @@ namespace tpgm
 		//url = url基地址 + 函数名
 		public static string s_basicUrl = "http://121.40.149.87:3000";
 		//public static string s_basicUrl = "http://192.168.52.1:3000";
+
+		public static string s_valUrl = "http://121.40.149.87/magician/update.zip";
 
 		//长连接客户端
         public static PomeloClient s_client;
@@ -54,10 +55,10 @@ namespace tpgm
                 return;
             }
 
-            GA.StartWithAppKeyAndChannelId("5860b1ef8f4a9d079d0014be" , "App Store");
+            //GA.StartWithAppKeyAndChannelId("5860b1ef8f4a9d079d0014be" , "App Store");
 
             //调试时开启日志 发布时设置为false
-            GA.SetLogEnabled(true);
+            //GA.SetLogEnabled(true);
 
             initExternalPath(channel);
 
@@ -71,9 +72,10 @@ namespace tpgm
         static void initExternalPath(string channel)
         {
             #if UNITY_ANDROID && !UNITY_EDITOR
-        s_externalPath = "/sdcard/ttd/";
+        s_externalPath = "/sdcard/fsdzz/";
+		s_externalPath = Application.persistentDataPath;
             #elif UNITY_IPHONE && !UNITY_EDITOR
-        s_externalPath = "/sdcard/ttd/";
+        s_externalPath = "/sdcard/fsdzz/";
             #elif UNITY_STANDALONE_WIN || UNITY_EDITOR
 			s_externalPath = Application.dataPath;
             int idx = s_externalPath.LastIndexOf("game_Data");

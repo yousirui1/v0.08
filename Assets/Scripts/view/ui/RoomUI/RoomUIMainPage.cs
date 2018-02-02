@@ -57,9 +57,9 @@ public class RoomUIMainPage : UIPage
 		}
 
 
-		friendList = this.transform.Find("tabcontrol/Panels/Panel(Clone)").gameObject;
+		friendList = this.transform.Find("tabcontrol/Panels/panel0").gameObject;
 
-		friendItem = this.transform.Find("tabcontrol/Panels/Panel(Clone)/Viewport/Content/item").gameObject;
+		friendItem = this.transform.Find("tabcontrol/Panels/panel0/Viewport/Content/item").gameObject;
 		friendItem.SetActive(false);
 
 		this.transform.Find("user1").GetComponent<Button>().onClick.AddListener(() =>
@@ -69,6 +69,7 @@ public class RoomUIMainPage : UIPage
 
         this.transform.Find("btn_start").GetComponent<Button>().onClick.AddListener(() =>
         {
+			m_controller.onPomeloEvent_Match();
 			UIPage.ShowPage<RoomUIPreparePage>();
         });
 		
@@ -195,7 +196,10 @@ public class RoomUIMainPage : UIPage
 
 		case MSG_POMELO_GLORYADD:
 			{
-
+				JsonObject jsMsg = (JsonObject)msg.m_dataObj;
+				UDGroup.StartPlayerBuf buf = null;
+				buf = SimpleJson.SimpleJson.DeserializeObject<UDGroup.StartPlayerBuf>(jsMsg.ToString());
+				ConectData.Instance.start_groups = new List<UDGroup.Group>(buf.newUser);
 			}
 			break;
 		default :
@@ -247,6 +251,8 @@ public class RoomUIMainPage : UIPage
 					Debug.Log("onPomeloEvent_EnterRoom"+data);
 					if(null != data)
 					{
+						buf = SimpleJson.SimpleJson.DeserializeObject<UDFriend.FriendBuf>(data.ToString());
+						ConectData.Instance.roomNum = buf.roomNum;
 
 						/*JObject jsMsg = JObject.Parse(data.ToString());
 						if(jsMsg.Property("friendArr")!=null)
@@ -289,16 +295,17 @@ public class RoomUIMainPage : UIPage
 				SavedContext.s_client.request ("area.gloryHandler.prepare", jsMsg, (data) => {
 				Debug.Log ("onPomeloEvent_Prepare" + data);
 				UDFriend.FriendBuf buf = null;
-				/*
+				
 				if(null != data)
 				{
-					buf = JsonConvert.DeserializeObject<UDFriend.FriendBuf>(data.ToString());
+					/*buf = SimpleJson.SimpleJson.DeserializeObject<UDFriend.FriendBuf>(data.ToString());
 					ConectData.Instance.roomNum = buf.roomNum;
+					Debug.Log(""+buf.roomNum);*/
 					//ConectData.Instance.friedns = new List<UDFriend.Friend>(buf.friendArr);
 					//Debug.Log(""+buf.friendArr.Length);
 					//ConectData.Instance.Channel = buf.frienaArr =UDfriends;
 					//eventObj.onove(buf);
-				}*/
+				}
 				});
 			} else {
 				Debug.LogError ("pClient null");
@@ -362,6 +369,7 @@ public class RoomUIMainPage : UIPage
 				});
 
 				pClient.on ("gloryAdd", (data) => {
+					Debug.Log("gloryAdd"+data);
 					HandlerMessage msg = MainLooper.obtainMessage(m_roomuimain.handleMsgDispatch, MSG_POMELO_GLORYADD);
 					msg.m_dataObj = data;
 					m_initedLooper.sendMessage(msg);

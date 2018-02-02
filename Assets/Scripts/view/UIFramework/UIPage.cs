@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Object = UnityEngine.Object;
 using UnityEngine.UI;
-using Umeng;
+//using Umeng;
 using System.Threading;
 using System.Linq;
 /**************************************
@@ -173,6 +173,7 @@ namespace tpgm.UI
             this.gameObject.SetActive(false);
             isActived = false;
             this.m_data = null;
+			unloadRes (SavedContext.s_texCache, SavedContext.s_valTableCache);
 
         }
 
@@ -768,6 +769,7 @@ namespace tpgm.UI
         //关闭当前页面
         public static void ClosePage()
         {
+
             if (m_currentPageNodes == null || m_currentPageNodes.Count <= 1)
                 return;
 

@@ -123,5 +123,17 @@ namespace tpgm
 				return Serializer.Deserialize<T>(ms);
 			}
 		}
+
+		//检索value
+		public static T ensureValue<T>(T t, T defVal)
+		{
+			if (null == t)
+			{
+				return defVal;
+			}
+
+			return t;
+		}
+
 	}
 }

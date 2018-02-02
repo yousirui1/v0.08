@@ -60,7 +60,7 @@ public class MainUIPage : UIPage
     public override void Awake(GameObject go)
     {
 		//定时器
-		coroutine = UIRoot.Instance.StartCoroutine(Timer());
+		//coroutine = UIRoot.Instance.StartCoroutine(Timer());
 
 		m_controller = new Controller();
 
@@ -116,7 +116,7 @@ public class MainUIPage : UIPage
 		this.gameObject.transform.Find("btn_roll").GetComponent<Button>().onClick.AddListener(() =>
 			{
 				// 占星
-				UIPage.ShowPage<RollUIPage>();
+				UIPage.ShowPage<AstrologyUIPage>();
 
 			});
 		
@@ -166,7 +166,7 @@ public class MainUIPage : UIPage
 		this.gameObject.transform.Find("btn_check").GetComponent<Button>().onClick.AddListener(() =>
 			{
 				// 签到
-				UIPage.ShowPage<PublicUICheckPage>();
+				UIPage.ShowPage<PublicUISignInPage>();
 			});
 				
 		

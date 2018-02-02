@@ -92,7 +92,7 @@ namespace tpgm
         //解析版本文件
         static Version parseVersionFileOrThrow()
         {
-            TextAsset txtFile = Resources.Load<TextAsset>("data/Version");
+            TextAsset txtFile = Resources.Load<TextAsset>("game_Data/data/Version");
             if (null == txtFile)
             {
                 throw new IOException("Version File not exists");
