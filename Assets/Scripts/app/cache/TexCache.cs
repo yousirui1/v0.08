@@ -4,11 +4,29 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
+/**************************************
+*FileName: TexCache.cs
+*User: ysr 
+*Data: 2018/2/2
+*Describe: 贴图缓存, 主要确保内存中的贴图占用不超过一定的范围;
+**************************************/
+
 namespace tpgm
 {
     //# 贴图缓存, 主要确保内存中的贴图占用不超过一定的范围;
     public class TexCache : MonoBehaviour
     {
+
+        CacheCommon<TexCacheItem> m_cacheCommon = new CacheCommon<TexCacheItem>(null);
+
+        //#pageID => 该页面mark了的资源列表;
+        Dictionary<string, HashSet<string>> m_pageMarkedResPathList = new Dictionary<string, HashSet<string>>();
+        StringBuilder m_tmpSB = new StringBuilder();
+
+        int m_mainThreadID;
+        List<AsyncLoadData> m_resLoadList = new List<AsyncLoadData>();
+
+
 		class TexCacheItem : tpgm.CacheItem
         {
             public override void releaseRetain()
@@ -661,14 +679,7 @@ namespace tpgm
 //        {
 //        }
 
-        CacheCommon<TexCacheItem> m_cacheCommon = new CacheCommon<TexCacheItem>(null);
-
-        //#pageID => 该页面mark了的资源列表;
-        Dictionary<string, HashSet<string>> m_pageMarkedResPathList = new Dictionary<string, HashSet<string>>();
-        StringBuilder m_tmpSB = new StringBuilder();
-
-        int m_mainThreadID;
-        List<AsyncLoadData> m_resLoadList = new List<AsyncLoadData>();
+       
     }
 }
 

@@ -315,8 +315,11 @@ namespace tpgm
 			public string uid;            //
 			public string isReady;		  //
 			public string nickname;		  //
+
 			public string group;		  //
 			public int head;
+			public int level;			
+			public int mmr;   //隐藏分
 
 		}
 		public class PreparePlayerBuf

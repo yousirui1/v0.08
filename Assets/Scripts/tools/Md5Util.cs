@@ -83,7 +83,7 @@ public class Md5Util : MonoBehaviour
             builder.Append(item.ToString("x2").ToLower());//把二进制的字节，转换为16进制的数字形式的字符串
         }
         string res = builder.ToString();
-        Debug.Log(res);
+        //Debug.Log(res);
         return res;
 
     }

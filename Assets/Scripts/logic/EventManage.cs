@@ -51,7 +51,7 @@ public class EventManage : MonoBehaviour
     {
         UserItemGroup = GameObject.Find("Content") as GameObject;
         UserListScrollHeight = UserItemGroup.GetComponent<RectTransform>().rect.height;
-        UserItemPre = (GameObject)Resources.Load("UI/Prefabs/UserNameItem");
+		UserItemPre = (GameObject)Resources.Load("Prefabs/UI/GameUI/UserNameItem");
         UserItemHeight = UserItemPre.GetComponent<RectTransform>().rect.height;
 
         joyObj = GameObject.Find("JoyControl").GetComponent<JoyControl>() as JoyControl;

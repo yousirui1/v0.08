@@ -3,10 +3,26 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
+
+/**************************************
+*FileName: ValLoader.cs
+*User: ysr 
+*Data: 2018/1/24
+*Describe: 数值表载入
+**************************************/
+
 namespace tpgm
 {
     public class ValLoader
     {
+
+          //#valFileName => ValList
+        Dictionary<string, object> m_dict = new Dictionary<string, object>();
+        //#valFileName => ValDict
+        Dictionary<string, object> m_dict2 = new Dictionary<string, object>();
+
+        List<Listener> m_listeners = new List<Listener>();
+        
         public interface Listener
         {
             void onTableLoadErr(ValLoader sender);
@@ -192,12 +208,7 @@ namespace tpgm
 
         //************************************************** 监听器 end;
 
-        //#valFileName => ValList
-        Dictionary<string, object> m_dict = new Dictionary<string, object>();
-        //#valFileName => ValDict
-        Dictionary<string, object> m_dict2 = new Dictionary<string, object>();
-
-        List<Listener> m_listeners = new List<Listener>();
+      
     }
 }
 

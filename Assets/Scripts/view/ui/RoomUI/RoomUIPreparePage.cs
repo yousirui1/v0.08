@@ -7,6 +7,8 @@ using tpgm;
 using DG.Tweening;
 using SimpleJson;
 using UnityEngine.SceneManagement;
+using Pomelo.DotNetClient;
+using System;
 
 public class RoomUIPreparePage : UIPage
 {
@@ -24,7 +26,7 @@ public class RoomUIPreparePage : UIPage
 	//秒定时器
 	IEnumerator Timer() {
 		while (true) {
-			yield return new WaitForSeconds(2.0f);
+			yield return new WaitForSeconds(1.0f);
 			Refresh ();
 		}
 	}
@@ -50,6 +52,16 @@ public class RoomUIPreparePage : UIPage
 		
 
 	}
+
+	protected override void loadRes(TexCache texCache, ValTableCache valCache)
+	{
+	}
+
+	protected override void unloadRes(TexCache texCache, ValTableCache valCache)
+	{
+
+	}
+
 
 	private int rad =0;
 	private int yellow = 0;
@@ -87,10 +99,10 @@ public class RoomUIPreparePage : UIPage
 				}
 			}
 		}
-		if (time == 5) {
+		if (time == 10) {
 			UIRoot.Instance.StopCoroutine(coroutine);
 			//SceneManager.LoadScene("Game");
-			Application.LoadLevel("Game");
+			//Application.LoadLevel("Game");
 		}
 
 
@@ -105,7 +117,7 @@ public class RoomUIPreparePage : UIPage
 			{
 				Debug.Log ("rad");
 				GameObject item = this.gameObject.transform.Find ("content/player_groups").transform.GetChild (rad).gameObject;
-				item.GetComponent<Image> ().sprite = TextureManage.getInstance().LoadAtlasSprite("Public/Atlases/Icon/General_icon","General_icon_"+imgID);
+				item.GetComponent<Image> ().sprite = TextureManage.getInstance().LoadAtlasSprite("RawImages/Public/Atlases/Icon/General_icon","General_icon_"+imgID);
 				item.name = uid;
 				rad++;
 				break;
@@ -115,7 +127,7 @@ public class RoomUIPreparePage : UIPage
 				Debug.Log ("yellow" +(yellow+3));
 				GameObject item = this.gameObject.transform.Find ("content/player_groups").transform.GetChild (yellow+3).gameObject;
 				item.name = uid;
-				item.GetComponent<Image> ().sprite = TextureManage.getInstance().LoadAtlasSprite("Public/Atlases/Icon/General_icon","General_icon_"+imgID);
+				item.GetComponent<Image> ().sprite = TextureManage.getInstance().LoadAtlasSprite("RawImages/Public/Atlases/Icon/General_icon","General_icon_"+imgID);
 				yellow++;
 				break;
 			}
@@ -124,7 +136,7 @@ public class RoomUIPreparePage : UIPage
 				Debug.Log ("green");
 				GameObject item = this.gameObject.transform.Find ("content/player_groups").transform.GetChild (green+6).gameObject;
 				item.name = uid;
-				item.GetComponent<Image> ().sprite = TextureManage.getInstance().LoadAtlasSprite("Public/Atlases/Icon/General_icon","General_icon_"+imgID);
+				item.GetComponent<Image> ().sprite = TextureManage.getInstance().LoadAtlasSprite("RawImages/Public/Atlases/Icon/General_icon","General_icon_"+imgID);
 				green++;
 				break;
 			}
@@ -132,76 +144,10 @@ public class RoomUIPreparePage : UIPage
 	}
 
 
-	public const int MSG_POMELO_READY = 1;
-	public const int MSG_POMELO_INVITE = 2;
-	public const int MSG_POMELO_ONCHAT = 3;
-	public const int MSG_POMELO_MATCH = 4;
-	public const int MSG_POMELO_ROOMADD = 5;
-	public const int MSG_POMELO_GLORYADD = 6;
-
-	protected override void onHandleMsg(HandlerMessage msg)
-	{
-		switch (msg.m_what) {
-		case MSG_POMELO_READY:
-			{
-
-			}
-			break;
-
-		case MSG_POMELO_INVITE:
-			{
-
-			}
-			break;
-
-		case MSG_POMELO_ONCHAT:
-			{
-
-			}
-			break;
-
-		case MSG_POMELO_MATCH:
-			{
-
-			}
-			break;
-
-		case MSG_POMELO_ROOMADD:
-			{
-
-			}
-			break;
-
-		case MSG_POMELO_GLORYADD:
-			{
-
-			}
-			break;
-		default :
-			{
-
-			}
-			break;
-		}
-	}
 
 
 
 
 
-
-	protected override void loadRes(TexCache texCache, ValTableCache valCache)
-	{
-	}
-
-	protected override void unloadRes(TexCache texCache, ValTableCache valCache)
-	{
-
-	}
-
-	class Controller 
-	{
-		
-	}
 
 }

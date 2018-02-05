@@ -2,11 +2,23 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+/**************************************
+*FileName: AudioCache.cs
+*User: ysr 
+*Data: 2018/2/2
+*Describe: 音频缓存, 主要确保内存中的音频占用不超过一定的范围
+**************************************/
+
 namespace tpgm
 {
     //# 音频缓存, 主要确保内存中的音频占用不超过一定的范围;
     public class AudioCache
     {
+        CacheCommon<AudioCacheItem> m_cacheCommon = new CacheCommon<AudioCacheItem>(new LfuComparer());
+
+        //#pageID => 该页面使用的音频;
+        Dictionary<string, HashSet<string>> m_pageMarkedAudioDict = new Dictionary<string, HashSet<string>>();
+
 		class AudioCacheItem : tpgm.CacheItem
         {
             public override void releaseRetain()
@@ -254,10 +266,7 @@ namespace tpgm
 
 
 
-        CacheCommon<AudioCacheItem> m_cacheCommon = new CacheCommon<AudioCacheItem>(new LfuComparer());
-
-        //#pageID => 该页面使用的音频;
-        Dictionary<string, HashSet<string>> m_pageMarkedAudioDict = new Dictionary<string, HashSet<string>>();
+     
 
     }
 }

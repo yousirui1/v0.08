@@ -10,7 +10,7 @@ using UnityEngine.UI;
  *FileName: Map.cs
  *Author: Star
  *Data: 2017/12/2
- *Describe: ´´½¨µØÍ¼¼°µØÍ¼ÉÏµÄÊÂ¼şÊµÏÖ
+ *Describe: åˆ›å»ºåœ°å›¾åŠåœ°å›¾ä¸Šçš„äº‹ä»¶å®ç°
 **************************************/
 
 public class Map : MonoBehaviour
@@ -29,7 +29,7 @@ public class Map : MonoBehaviour
 
     public SkillManage skillManage;
 
-    //¿ØÖÆÌí¼ÓÎïÌå
+    //æ§åˆ¶æ·»åŠ ç‰©ä½“
     private bool isAdd = false;
 
     private int x = 0;
@@ -37,7 +37,7 @@ public class Map : MonoBehaviour
     private string name;
     private int type = 0;
 
-    //ÔÚÏßÍæ¼Ò
+    //åœ¨çº¿ç©å®¶
     public GameObject[] playerObjs = new GameObject[ConfigT.playerMax];
 
 
@@ -98,7 +98,7 @@ public class Map : MonoBehaviour
 
     }
 
-	//ÉèÖÃÌí¼ÓÍæ¼ÒµÄÊı¾İ
+	//è®¾ç½®æ·»åŠ ç©å®¶çš„æ•°æ®
 	public void setAddData(string name , int x , int y, int type)
 	{	
 		isAdd = true;
@@ -108,7 +108,7 @@ public class Map : MonoBehaviour
 		this.y = y;
 	}	
 
-	//»ñÈ¡Ö¸¶¨Íæ¼ÒµÄid 
+	//è·å–æŒ‡å®šç©å®¶çš„id 
 	int getPlayerID(PlayerVal entite)
 	{
 		int id = 0;
@@ -125,7 +125,7 @@ public class Map : MonoBehaviour
 	}
 
 
-    //Ìí¼Ó¶ÔÏó
+    //æ·»åŠ å¯¹è±¡
    public void addGameObj(int i, string name, int x, int y , int type)
 	{
         
@@ -162,7 +162,7 @@ public class Map : MonoBehaviour
     }		
 
 	
-	//É¾³ı¶ÔÏó
+	//åˆ é™¤å¯¹è±¡
 	public void delGameObj(int i)
 	{
         Destroy(playerObjs[i]);
@@ -170,7 +170,7 @@ public class Map : MonoBehaviour
 
 	
 
-	//½ÓÊÕEvent²¢ÔÚ³¡¾°ÀïÖ´ĞĞ
+	//æ¥æ”¶Eventå¹¶åœ¨åœºæ™¯é‡Œæ‰§è¡Œ
 	public void onEvent(int id, PlayerVal playerVal)
 	{
        
@@ -182,7 +182,7 @@ public class Map : MonoBehaviour
                                            "time", 1.0,
                                            "islocal", true
              ));
-            //ÊÍ·Å¼¼ÄÜ
+            //é‡Šæ”¾æŠ€èƒ½
           
             if(playerVal.skill != 0)
 			{
@@ -197,7 +197,7 @@ public class Map : MonoBehaviour
 
         }
 	}
-    //²éÕÒÍæ¼ÒÉíÉÏµÄ×ÓÎïÌå¸üĞÂ×´Ì¬
+    //æŸ¥æ‰¾ç©å®¶èº«ä¸Šçš„å­ç‰©ä½“æ›´æ–°çŠ¶æ€
     Transform findChild(int id, string name)
     {
         //ransform[] transforms;
@@ -210,7 +210,7 @@ public class Map : MonoBehaviour
         {
             if (child.name == name)
             {
-                //child.GetComponent<>(). ½Å²½µ÷ÓÃ
+                //child.GetComponent<>(). è„šæ­¥è°ƒç”¨
                 return child;
             }
         }

@@ -51,6 +51,8 @@ public class ConectData
 
 	public List<UDGroup.Group> start_groups;
 
+	public JsonObject playerInfo { get ; set; }
+
 	//房间号
 	public string roomNum { get ; set ; } 
 

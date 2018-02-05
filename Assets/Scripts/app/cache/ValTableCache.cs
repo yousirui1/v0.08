@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 
+/**************************************
+*FileName: ValTableCache.cs
+*User: ysr 
+*Data: 2018/2/2
+*Describe: 数值表缓存
+**************************************/
+
+
 namespace tpgm
 {
     public class ValTableCache

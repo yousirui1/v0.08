@@ -67,7 +67,7 @@ namespace tpgm
 			
 			if(Directory.Exists(dataDirPath))
 			{
-				Debug.Log (TAG + ":" + "dataDirPath null");
+			//	Debug.Log (TAG + ":" + "dataDirPath null");
 				if(m_lastModified != string.Empty)
 				{
 					

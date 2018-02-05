@@ -160,6 +160,7 @@ public class RoomUIMainPage : UIPage
 	public const int MSG_POMELO_MATCH = 4;
 	public const int MSG_POMELO_ROOMADD = 5;
 	public const int MSG_POMELO_GLORYADD = 6;
+	public const int MSG_POMELO_PALYERINFO = 7;
 
 	protected override void onHandleMsg(HandlerMessage msg)
 	{
@@ -184,7 +185,13 @@ public class RoomUIMainPage : UIPage
 
 		case MSG_POMELO_MATCH:
 			{
-
+				JsonObject jsMsg = (JsonObject)msg.m_dataObj;
+				object match;
+				if (jsMsg.TryGetValue ("match", out match)) {
+					if (Convert.ToInt32 (match) == 2) {
+						Application.LoadLevel("Game");
+					}
+				}
 			}
 			break;
 
@@ -200,6 +207,13 @@ public class RoomUIMainPage : UIPage
 				UDGroup.StartPlayerBuf buf = null;
 				buf = SimpleJson.SimpleJson.DeserializeObject<UDGroup.StartPlayerBuf>(jsMsg.ToString());
 				ConectData.Instance.start_groups = new List<UDGroup.Group>(buf.newUser);
+			}
+			break;
+
+		case MSG_POMELO_PALYERINFO:
+			{
+				JsonObject jsMsg = (JsonObject)msg.m_dataObj;
+				ConectData.Instance.playerInfo = jsMsg;
 			}
 			break;
 		default :
@@ -371,6 +385,13 @@ public class RoomUIMainPage : UIPage
 				pClient.on ("gloryAdd", (data) => {
 					Debug.Log("gloryAdd"+data);
 					HandlerMessage msg = MainLooper.obtainMessage(m_roomuimain.handleMsgDispatch, MSG_POMELO_GLORYADD);
+					msg.m_dataObj = data;
+					m_initedLooper.sendMessage(msg);
+				});
+
+				pClient.on ("playerInfo", (data) => {
+					Debug.Log("playerInfo"+data);
+					HandlerMessage msg = MainLooper.obtainMessage(m_roomuimain.handleMsgDispatch, MSG_POMELO_PALYERINFO);
 					msg.m_dataObj = data;
 					m_initedLooper.sendMessage(msg);
 				});
