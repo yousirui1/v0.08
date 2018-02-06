@@ -255,9 +255,7 @@ public class PublicUISignInPage : UIPage
 
 			ReqThirdGetData paramsValObj;
 			string checkID;
-
 			string api = "/getdata";
-
 			AppUtils.apiCheckID (api);
 
 			if (isRetry) {
@@ -279,7 +277,6 @@ public class PublicUISignInPage : UIPage
 			string url = SavedContext.getApiUrl(api);
 			Debug.Log (url);
 			m_netHttp.postParamsValAsync(url,paramsValObj, REQ_THIRD_GETDATA, checkID);
-
 		}
 
 

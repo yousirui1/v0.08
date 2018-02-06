@@ -37,7 +37,7 @@ public class ResourceMgr : MonoBehaviour
 			return hashtable[path] as T;
 		}
 
-		Debug.Log(string.Format("Load asset from resouce folder, path:{0}, cacje:{1}",path,cache));
+		//Debug.Log(string.Format("Load asset from resouce folder, path:{0}, cacje:{1}",path,cache));
 		T assetObj = Resources.Load<T>(path);
 		if(assetObj == null)
 		{

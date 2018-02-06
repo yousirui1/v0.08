@@ -8,8 +8,22 @@ using tpgm;
 public class PackageUIPage : UIPage
 {
 	private const string TAG = "PackageUIPage";
+	
+	private GameObject Item = null;
+	private GameObject List = null;
+	
+	private List<UIPackageItem> Items = new List<UIPackageItem>();
+	
+	//当前item
+	private UIPackageItem  currentItem = null;
+	
+	private TabControl tabControl = null;
+	
+	private List<TabIndex> tablist = new List<TabIndex>();
 
-	private long AwadTime = 0;
+		
+
+
 	public PackageUIPage() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
 	{
 		//布局预制体
@@ -17,20 +31,9 @@ public class PackageUIPage : UIPage
 	}
 	public override void Refresh()
 	{
-		/*this.gameObject.transform.Find("tx_username").GetComponent<Text>().text = "" + ConectData.Instance.userInfo.nickname;
-		this.gameObject.transform.Find("tx_level").GetComponent<Text>().text = ConectData.Instance.userInfo.level + "级";
-
-		AwadTime = ConectData.Instance.userInfo.boxData  - ConectData.Instance.NewTime;
-
-		if (AwadTime < 0) {
-			AwadTime = 0;
-			this.gameObject.transform.Find ("btn_goldbox").GetComponent<Button> ().enabled = true;
-		} else {
-			this.gameObject.transform.Find ("btn_goldbox").GetComponent<Button> ().enabled = false; 
-		}
-		this.gameObject.transform.Find("btn_goldbox/Text").GetComponent<Text>().text = ""+ AwadTime;
-		this.gameObject.transform.Find("btn_copperbox/Text").GetComponent<Text>().text ="" + ConectData.Instance.userInfo.gold;*/
+		
 	}
+
 
 
 	//秒定时器
@@ -45,16 +48,29 @@ public class PackageUIPage : UIPage
 
 	public override void Awake(GameObject go)
 	{
+		
+		tabControl = this.transform.Find("tabcontrol").GetComponent<TabControl>() as TabControl;
+
+		tablist.Add(new TabIndex(0, "魔法师", null));
+		tablist.Add(new TabIndex(1, "魔宠", null));
+		tablist.Add(new TabIndex(2, "技能", null));
+		tablist.Add(new TabIndex(3, "喷漆", null));
+		tablist.Add(new TabIndex(4, "魔法书", null));
+		tablist.Add(new TabIndex(5, "天赋书", null));
+		tablist.Add(new TabIndex(6, "魔法师", null));
+
+		for(int i = 0; i<tablist.Count; i++)
+		{
+			tabControl.CreateTab(tablist[i].id, tablist[i].tabname, tablist[i].panelPath);
+			initTab(i);
+		}
+
 		this.gameObject.transform.Find("btn_back").GetComponent<Button>().onClick.AddListener(() =>
 		{
 			// 返回
 			ClosePage();
 		});
 	}
-
-
-
-
 
 
 	protected override void loadRes(TexCache texCache, ValTableCache valCache)
@@ -64,6 +80,48 @@ public class PackageUIPage : UIPage
 	protected override void unloadRes(TexCache texCache, ValTableCache valCache)
 	{
 
+	}
+
+
+	private void initTab(int tab)
+	{
+		List = this.transform.Find("tabcontrol").gameObject;
+		Item = this.transform.Find("tabcontrol/Panels/panel"+tab+"/Viewport/Content/item").gameObject;
+		Item.SetActive(false);
+
+		ValTableCache valCache = getValTableCache();
+		Dictionary<int, ValStore> valDict = valCache.getValDictInPageScopeOrThrow<ValStore>(m_pageID, ConstsVal.val_store);
+
+		for(int i = 0; i<valDict.Count; i++)
+		{
+			ValStore val = ValUtils.getValByKeyOrThrow(valDict, i);
+			if(val.classify == tab)
+				CreateItem(val);
+		}
+
+	}
+
+
+	private void CreateItem(ValStore val)
+	{
+		GameObject go = GameObject.Instantiate(Item) as GameObject;
+		go.transform.SetParent(Item.transform.parent);
+		go.transform.localScale = Vector3.one;
+		go.SetActive(true);
+		
+		//添加事件处理脚本
+		UIPackageItem item = go.AddComponent<UIPackageItem>();
+		item.Refresh(val);
+		Items.Add(item);
+		
+		//添加按钮点击事件监听
+		go.AddComponent<Button>().onClick.AddListener(OnClickItem);
+	}
+
+	private void OnClickItem()
+	{
+		UIPackageItem item = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<UIPackageItem>();
+		UIPage.ShowPage<PublicUINotice>(item.data);
 	}
 
 	class Controller : NetHttp.INetCallback
@@ -194,269 +252,163 @@ public class PackageUIPage : UIPage
 #if false
 
 
-		//定时器
-		//UIRoot.Instance.StartCoroutine(Timer());
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using tpgm.UI;
+using tpgm;
 
-		//初始化
-		Init();
-
-		GameObject rankObj = ResourceMgr.Instance().CreateGameObject("Prefab/UI/PublicUI/PublicUIRank",false);
-		rankObj.SetActive (false);
-
-		//隐藏按钮
-		this.gameObject.transform.Find("btn_hid").GetComponent<Button>().onClick.AddListener(() =>
-		{
-		//isActive = !isActive;
-		// 隐藏设置按钮
-		//Active_btn(isActive);
-		//				
-		isActive = !isActive;
-		Active_btn(isActive);
-		int iActive = isActive == false ? 0 : 1;
-		PlayerPrefs.SetInt("hid", iActive);
-		});
-
-		
-
-		this.gameObject.transform.Find("btn_rank").GetComponent<Button>().onClick.AddListener(() =>
-		{
-
-		rankObj.SetActive (true);
-
-		Debug.Log("obj null");
-
-		rankObj.gameObject.transform.Find("btn_back").GetComponent<Button>().onClick.AddListener(() =>
-		{
-		rankObj.SetActive (false);
-		});
-		});
-
-		//领取宝箱
-		this.gameObject.transform.Find("btn_goldbox").GetComponent<Button>().onClick.AddListener(() =>
-		{
-		UpdateBuf update = new UpdateBuf();
-		update.isRetry = 0;
-		update.checkID = "1";
-		update.token = ConectData.Instance.Token;
-
-		BoxRewardBuf rewardBuf = new BoxRewardBuf();
-		BoxReward reward = new BoxReward();
-
-		rewardBuf.reward = reward;
-		//设置
-
-		NetHttp.HttpSend<UpdateBuf, BoxRewardBuf>("http://121.40.149.87:3000/boxreward", update, rewardBuf);
-
-		if(NetHttp.HttpResult(rewardBuf.code))
-		{
-		if (rewardBuf.reward.gold != null)
-		{
-		Debug.Log(rewardBuf.reward.gold);
-
-		ItemAwad awad = new ItemAwad();
-		awad.id = 0;
-		awad.num = 100;
-
-		UIPage.ShowPage<PublicUIAwadPage>(awad);
-		ConectData.Instance.userInfo.boxData = rewardBuf.boxTime +30000;
-		ConectData.Instance.NewTime =rewardBuf.utcMs;
-
-		}
-		else
-		{
-		Debug.LogError("Json null");
-		}
-		}
-		else if(rewardBuf.code == 1006)
-		{
-		//ConectData.Instance.NetTime = 0;
-		//校正时间
-		ConectData.Instance.NewTime= rewardBuf.utcMs;
-		}
-
-		Refresh();
-
-
-		});
-
-
-		this.gameObject.transform.Find("btn_mode1").GetComponent<Button>().onClick.AddListener(() =>
-		{
-
-		//向服务器创建房间
-		ClientMgr.Instance().CreatRoom();
-
-		//荣耀对决
-		UIPage.ShowPage<RoomUIMainPage>();
-		});
-
-
-
-		}
-
-		private void Init()
-		{
-		//初始化GameObject
-		btn_set = GameObject.Find("btn_set") as GameObject;
-		btn_email = GameObject.Find("btn_email") as GameObject;
-		btn_activity = GameObject.Find("btn_activity") as GameObject;
-		btn_check = GameObject.Find("btn_check") as GameObject;
-		btn_rank = GameObject.Find("btn_rank") as GameObject;
-
-		//http获取玩家数据
-		gps = new GPSVal();
-		InfoUtil.Instance().getGPS(gps);
-
-		InfoSendBuf sendbuf = new InfoSendBuf();
-		sendbuf.isRetry = 0;
-		sendbuf.checkID = "1";
-		sendbuf.user = 1;
-		sendbuf.box = 1;
-		sendbuf.token = ConectData.Instance.Token;
-		sendbuf.Lng = gps.longitude;
-		sendbuf.Lat = gps.latitude;
-
-		UserInfoBuf userinfo = new UserInfoBuf(); 
-		NetHttp.HttpSend<InfoSendBuf, UserInfoBuf>("http://121.40.149.87:3000/getdata", sendbuf, userinfo);
-
-		ConectData.Instance.userInfo = userinfo;
-
-		ConectData.Instance.userInfo.boxData += 30000;
-
-		ConectData.Instance.NewTime = userinfo.utcMs;
-
-
-		//载入本地数据
-		int iActive = PlayerPrefs.GetInt("hid");
-		isActive = iActive == 0 ? false : true;
-		Active_btn (isActive);
-		//显示数据
-
-		//刷新显示
-		Refresh();
-		if (ConectData.Instance.Uid != "") {
-		//登录服务器
-		ClientMgr.Instance ().SetUrl (Config.host, Config.port);
-		}
-
-		}
-
-		private void Active_btn(bool isActive)
-		{
-
-		btn_set.SetActive(isActive);
-		btn_email.SetActive(isActive);
-		btn_activity.SetActive(isActive);
-		btn_check.SetActive(isActive);
-		btn_rank.SetActive(isActive);
-		}
-		}
-
-
-//Init(UIValue.main_btnID, UIValue.main_inputID, UIValue.main_txID, UIValue.main_imgID);
-this.gameObject.transform.Find("btn_bigpack").GetComponent<Button>().onClick.AddListener(() =>
+public class StoreUIPage : UIPage
 {
-// 大礼包
-UIPage.ShowPage<PublicUINotice>("大礼包未完成，敬请期待");
+private const string TAG = "StoreUIPage";
+private long AwadTime = 0;
+
+private GameObject Item = null;
+private GameObject List = null;
 
 
-});
+private List<UIStoreItem> Items = new List<UIStoreItem>();
 
-this.gameObject.transform.Find("btn_firstpay").GetComponent<Button>().onClick.AddListener(() =>
+//当前item	
+private UIStoreItem currentItem = null;
+
+private TabControl tabControl = null;
+
+private List<TabIndex> tablist = new List<TabIndex>();
+
+
+
+public StoreUIPage() : base(UIType.Normal, UIMode.HideOther, UICollider.None)
 {
-// 首充
-UIPage.ShowPage<PublicUINotice>("首充包未完成，敬请期待");
-
-});
-
-this.gameObject.transform.Find("btn_info").GetComponent<Button>().onClick.AddListener(() =>
+//布局预制体
+uiPath = "Prefabs/UI/StoreUI/StoreUIMain";
+}
+public override void Refresh()
 {
-// 开箱
-UIPage.ShowPage<PublicUINotice>("大礼包未完成，敬请期待");
 
-});
-
-this.gameObject.transform.Find("btn_task").GetComponent<Button>().onClick.AddListener(() =>
-{
-// 开箱
-UIPage.ShowPage<PublicUINotice>("大礼包未完成，敬请期待");
-
-});
-
-this.gameObject.transform.Find("btn_achievement").GetComponent<Button>().onClick.AddListener(() =>
-{
-// 开箱
-UIPage.ShowPage<PublicUINotice>("大礼包未完成，敬请期待");
-});
+}
 
 
-this.gameObject.transform.Find("btn_draw").GetComponent<Button>().onClick.AddListener(() =>
-{
-// 开箱
-UIPage.ShowPage<PublicUINotice>("大礼包未完成，敬请期待");
-
-});
-
-
-this.gameObject.transform.Find("btn_friends").GetComponent<Button>().onClick.AddListener(() =>
-{
-// 开箱
-UIPage.ShowPage<PublicUINotice>("大礼包未完成，敬请期待");
-});
-
-
-this.gameObject.transform.Find("btn_store").GetComponent<Button>().onClick.AddListener(() =>
-{
-// 开箱
-UIPage.ShowPage<PublicUINotice>("大礼包未完成，敬请期待");
-});
+//秒定时器
+IEnumerator Timer() {
+while (true) {
+yield return new WaitForSeconds(1.0f);
+//Refresh ();
+}
+}
 
 
 
-
-
-this.gameObject.transform.Find("btn_email").GetComponent<Button>().onClick.AddListener(() =>
-{
-// 开箱
-UIPage.ShowPage<PublicUINotice>("大礼包未完成，敬请期待");
-});
-
-
-this.gameObject.transform.Find("btn_activity").GetComponent<Button>().onClick.AddListener(() =>
-{
-//设置
-UIPage.ShowPage<PublicUINotice>("大礼包未完成，敬请期待");
-});
-
-this.gameObject.transform.Find("btn_check").GetComponent<Button>().onClick.AddListener(() =>
-{
-//设置
-UIPage.ShowPage<PublicUINotice>("大礼包未完成，敬请期待");
-});
-
-
-
-this.gameObject.transform.Find("btn_copperbox").GetComponent<Button>().onClick.AddListener(() =>
+public override void Awake(GameObject go)
 {
 
 
+tabControl = this.transform.Find("tabcontrol").GetComponent<TabControl>() as TabControl;
 
-});
+tablist.Add(new TabIndex(0, "推荐", null));	
+tablist.Add(new TabIndex(1, "魔法石", null));	
+tablist.Add(new TabIndex(2, "魔法币", null));	
+tablist.Add(new TabIndex(3, "特卖", null));	
+
+for(int i =0 ; i<tablist.Count; i++)
+{
+tabControl.CreateTab(tablist[i].id, tablist[i].tabname, tablist[i].panelPath);
+}
 
 
-this.gameObject.transform.Find("btn_mode1").GetComponent<Button>().onClick.AddListener(() =>
+checkTab(0);
+
+this.gameObject.transform.Find("btn_back").GetComponent<Button>().onClick.AddListener(() =>
 {
-//荣耀对决
-UIPage.ShowPage<RoomUIMainPage>();
+ClosePage();
 });
-this.gameObject.transform.Find("btn_mode2").GetComponent<Button>().onClick.AddListener(() =>
+
+this.gameObject.transform.Find("tabcontrol/Tabs/tab0").GetComponent<Button>().onClick.AddListener(() =>
 {
-//魔法联赛
-UIPage.ShowPage<RoomUIMainPage>();
+checkTab(0);
 });
-this.gameObject.transform.Find("btn_modequick").GetComponent<Button>().onClick.AddListener(() =>
+
+this.gameObject.transform.Find("tabcontrol/Tabs/tab1").GetComponent<Button>().onClick.AddListener(() =>
 {
-//设置
-UIPage.ShowPage<RoomUIMainPage>();
+Debug.Log("魔法石");
+checkTab(1);
 });
+
+this.gameObject.transform.Find("tabcontrol/Tabs/tab2").GetComponent<Button>().onClick.AddListener(() =>
+{
+checkTab(2);
+});
+
+this.gameObject.transform.Find("tabcontrol/Tabs/tab3").GetComponent<Button>().onClick.AddListener(() =>
+{
+checkTab(3);
+});
+
+}
+
+
+
+
+protected override void loadRes(TexCache texCache, ValTableCache valCache)
+{
+valCache.markPageUseOrThrow<ValGlobal>(m_pageID, ConstsVal.val_global);
+valCache.markPageUseOrThrow<ValStore>(m_pageID, ConstsVal.val_store);
+}
+
+protected override void unloadRes(TexCache texCache, ValTableCache valCache)
+{
+valCache.unmarkPageUse(m_pageID, ConstsVal.val_global);
+valCache.unmarkPageUse(m_pageID, ConstsVal.val_store);
+}
+
+
+
+private void checkTab(int tab)
+{
+List = this.transform.Find("tabcontrol").gameObject;
+Item = this.transform.Find("tabcontrol/Panels/panel"+tab+"/Viewport/Content/item").gameObject;
+Item.SetActive(false);
+
+ValTableCache valCache = getValTableCache();
+Dictionary<int, ValStore> valDict = valCache.getValDictInPageScopeOrThrow<ValStore>(m_pageID, ConstsVal.val_store);
+
+for (int i = 1; i <= valDict.Count; i++) {
+ValStore val = ValUtils.getValByKeyOrThrow(valDict, i);
+//Debug.Log (""+val.classify);
+if(val.classify == tab)
+CreateItem(val);	
+}
+
+}
+
+
+private void CreateItem(ValStore val)
+{
+Debug.Log ("CreateItem"+val.classify);
+GameObject go = GameObject.Instantiate(Item) as GameObject;
+go.transform.SetParent(Item.transform.parent);
+go.transform.localScale = Vector3.one;
+go.SetActive(true);
+
+//添加事件处理脚本
+UIStoreItem item = go.AddComponent<UIStoreItem>();
+item.Refresh(val);
+Items.Add(item);
+
+//添加按钮点击事件监听
+go.AddComponent<Button>().onClick.AddListener(OnClickItem);
+}
+
+//tablist item 点击事件
+private void OnClickItem()
+{
+UIStoreItem item = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<UIStoreItem>();
+Debug.Log (item.data.id);
+UIPage.ShowPage<PublicUIPayPage>(item.data);
+}
+
+
+}
+
 #endif

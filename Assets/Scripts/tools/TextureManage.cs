@@ -85,7 +85,7 @@ public class TextureManage : MonoBehaviour {
 		}
         else
         {
-            Debug.Log("缓存没找到图集" + spriteAtlasPath);
+            //Debug.Log("缓存没找到图集" + spriteAtlasPath);
             return null;
         }
 

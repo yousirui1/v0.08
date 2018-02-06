@@ -62,7 +62,7 @@ namespace tpgm
 		public string m_userData  = "";
 
 		[ProtoBuf.ProtoMember(4, IsRequired = false)]
-		public string m_boxData = "";
+		public string m_boxData = "";  //宝箱开始时间
 
 		[ProtoBuf.ProtoMember(5, IsRequired = false)]
 		public string m_friendData = "";
@@ -77,11 +77,7 @@ namespace tpgm
 
 	public class JsonThirdUserData
 	{
-		public int code;				
-		public int utcMs;                  //当前时间
-
-		public int boxData;             //宝箱开始时间
-		public string head;             //图像
+		public int head;             //图像
 		public string nickname;         //昵称
 		public int level;               //等级    
 		public int section;             //段位    
@@ -90,6 +86,10 @@ namespace tpgm
 		public int diamond;             //钻石
 		public int prestige;            //声望
 		public int fragment;            //碎片
+		public int fans;				//粉丝
+		public int follow;   			//关注
+		public int like;   				//被赞数
+		public string signature;   		//签名
 	}
 
 

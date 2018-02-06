@@ -206,6 +206,21 @@ namespace tpgm
 
         //#授权token;
         public string m_token = "";
+
+		public int m_head;    //头像
+
+		public string m_nickname  = "";  //昵称
+
+		public int m_level;    			//等级
+
+		public int m_fans ;				//粉丝数
+						
+		public int m_follow;			//关注数
+
+		public int m_like;				//被赞数
+
+		public string m_signature =  "";  //签名
+
     }
 
     //**************************************************

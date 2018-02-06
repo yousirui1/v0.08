@@ -29,6 +29,10 @@ namespace tpgm
 
 		public const string val_store = "val_store.json";
 
+		public const string val_task = "val_task.json";
+
+		public const string val_achieve = "val_achieve.json";
+
 		/*
 		public const string val_activity = "val_activity.json";
 

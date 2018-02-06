@@ -194,7 +194,7 @@ namespace tpgm
                 Serializer.Serialize<T>(ms, paramsVal);
 
                 byte[] bytes = ms.ToArray();
-				Debug.Log ("" + BitConverter.ToString (bytes));
+				//Debug.Log ("" + BitConverter.ToString (bytes));
 
                 if (ENCRTYP_ENABLE)
                 {
@@ -595,7 +595,6 @@ namespace tpgm
                 catch (FormatException ex)
                 {
                     //#服务端返回的数据格式异常;
-                   
 					Debug.Log (TAG + ":" + "format ex: " + ex.Message);
                     m_failRequestStack.Push(dataNeedOnResp.m_checkID);
 
@@ -635,8 +634,6 @@ namespace tpgm
         void tellHttpOk(DataNeedOnResponse data, ResponseData resp)
         {
         
-			Debug.Log (TAG +":" +"tellHttpOk");
-
             if (null != m_callbackOrNull)
             {
                 m_callbackOrNull.onHttpOk(data, resp);
@@ -646,7 +643,6 @@ namespace tpgm
         void tellHttpErr(DataNeedOnResponse data, int statusCode)
         {
           
-			Debug.Log (TAG +":" +"tellHttpErr");
             if (null != m_callbackOrNull)
             {
                 m_callbackOrNull.onHttpErr(data, statusCode, "");
@@ -656,7 +652,6 @@ namespace tpgm
         void tellOtherErr(DataNeedOnResponse data, int type)
         {
             
-			Debug.Log (TAG +":" +"tellNetErr");
             if (null != m_callbackOrNull)
             {
                 m_callbackOrNull.onOtherErr(data, type);

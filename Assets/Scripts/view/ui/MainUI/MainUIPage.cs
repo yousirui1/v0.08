@@ -19,23 +19,14 @@ public class MainUIPage : UIPage
     }
    
 
-	//秒刷新
-	public override void Refresh()
-    {
-       /* this.gameObject.transform.Find("tx_username").GetComponent<Text>().text = "" + ConectData.Instance.userInfo.nickname;
-        this.gameObject.transform.Find("tx_level").GetComponent<Text>().text = ConectData.Instance.userInfo.level + "级";
 
-		AwadTime = ConectData.Instance.userInfo.boxData  - ConectData.Instance.NewTime;
-	
-		if (AwadTime < 0) {
-			AwadTime = 0;
-			this.gameObject.transform.Find ("btn_goldbox").GetComponent<Button> ().enabled = true;
-		} else {
-			this.gameObject.transform.Find ("btn_goldbox").GetComponent<Button> ().enabled = false; 
-		}
-		this.gameObject.transform.Find("btn_goldbox/Text").GetComponent<Text>().text = ""+ AwadTime;
-		this.gameObject.transform.Find("btn_copperbox/Text").GetComponent<Text>().text ="" + ConectData.Instance.userInfo.gold;*/
-    }
+	public override void Refresh()
+	{
+		this.transform.Find("bg_username/btn_head").GetComponent<Image>().sprite = TextureManage.getInstance().LoadAtlasSprite("RawImages/Public/Atlases/Icon/General_icon","General_icon_"+SavedData.s_instance.m_user.m_head);
+		this.transform.Find ("tx_username").GetComponent<Text> ().text = SavedData.s_instance.m_user.m_nickname;
+		this.transform.Find ("tx_level").GetComponent<Text> ().text = ""+SavedData.s_instance.m_user.m_level;
+	}
+
 
 
 	//秒定时器
@@ -62,7 +53,7 @@ public class MainUIPage : UIPage
 		//定时器
 		//coroutine = UIRoot.Instance.StartCoroutine(Timer());
 
-		m_controller = new Controller();
+		m_controller = new Controller(this);
 
 		//初始化
 		Init();
@@ -75,7 +66,7 @@ public class MainUIPage : UIPage
 		this.gameObject.transform.Find("bg_username/btn_head").GetComponent<Button>().onClick.AddListener(() =>
 			{
 				// 个人信息
-				UIPage.ShowPage<InfoUIMainPage>();
+				UIPage.ShowPage<InfoUIPage>();
 			});
 		
 
@@ -103,14 +94,14 @@ public class MainUIPage : UIPage
 		this.gameObject.transform.Find("btn_task").GetComponent<Button>().onClick.AddListener(() =>
 			{
 				// 任务
-				UIPage.ShowPage<PublicUINotice>("任务未完成，敬请期待");
+				UIPage.ShowPage<PublicUITaskPage>();
 
 			});
 
 		this.gameObject.transform.Find("btn_achievement").GetComponent<Button>().onClick.AddListener(() =>
 			{
 				// 成就
-				UIPage.ShowPage<PublicUINotice>("成就未完成，敬请期待");
+				UIPage.ShowPage<AchievementUIPage>();
 			});
 
 		this.gameObject.transform.Find("btn_roll").GetComponent<Button>().onClick.AddListener(() =>
@@ -122,8 +113,8 @@ public class MainUIPage : UIPage
 		
 		this.gameObject.transform.Find("btn_friends").GetComponent<Button>().onClick.AddListener(() =>
 			{
-				// 开箱
-				UIPage.ShowPage<PublicUINotice>("好友未完成，敬请期待");
+				// 好友
+				UIPage.ShowPage<ChatUIPage>();
 			});
 		
 
@@ -225,7 +216,7 @@ public class MainUIPage : UIPage
 		btn_rank = GameObject.Find("btn_rank") as GameObject;
 
 
-		m_controller.reqThirdGetData (false,0,0,0,0);
+		m_controller.reqThirdGetData (false,1,0,1,1);
 
 
 	}
@@ -240,17 +231,19 @@ public class MainUIPage : UIPage
 		btn_rank.SetActive(isActive);
 	}
 
-
-	class Controller : NetHttp.INetCallback
+	class Controller : BaseController<MainUIPage>,NetHttp.INetCallback
 	{
 		NetHttp m_netHttp;
 
-	
-		public Controller()
+		private MainLooper m_initedLooper;
+
+		MainUIPage m_main;
+		public Controller(MainUIPage iview):base(null)
 		{
 			m_netHttp = new NetHttp();
 			m_netHttp.setPageNetCallback(this);
-
+			m_initedLooper = MainLooper.instance();
+			m_main = iview;
 		}
 
 		public void onDestroy()
@@ -356,7 +349,27 @@ public class MainUIPage : UIPage
 					switch (resp.m_code) {
 					case 200:
 						{
-							//Debug.Log ("" + resp.m_utcMs);
+							if (!resp.m_userData.Equals (string.Empty)) {
+								JsonThirdUserData js_userdata = SimpleJson.SimpleJson.DeserializeObject<JsonThirdUserData> (resp.m_userData);
+								SavedData.s_instance.m_user.m_head = js_userdata.head;
+								SavedData.s_instance.m_user.m_nickname = js_userdata.nickname;
+								SavedData.s_instance.m_user.m_level = js_userdata.level;
+								SavedData.s_instance.m_user.m_fans = js_userdata.fans;
+								SavedData.s_instance.m_user.m_follow = js_userdata.follow;
+								SavedData.s_instance.m_user.m_like = js_userdata.like;
+								SavedData.s_instance.m_user.m_signature = js_userdata.signature;
+
+							}
+
+							if (!resp.m_signInData.Equals (string.Empty)) {
+								JsonThirdSignInData js_singnindata = SimpleJson.SimpleJson.DeserializeObject<JsonThirdSignInData> (resp.m_signInData);
+							}
+
+							if (!resp.m_friendData.Equals (string.Empty)) {
+								JsonThirdFriendData js_frienddata = SimpleJson.SimpleJson.DeserializeObject<JsonThirdFriendData> (resp.m_friendData);
+							}
+
+							m_main.Refresh ();
 						}
 						break;
 					}

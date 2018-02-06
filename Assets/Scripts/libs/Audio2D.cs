@@ -141,7 +141,7 @@ namespace tpgm
 
         void OnDestroy()
         {
-            m_msgHandlerProxy.onObjectDestroy();
+            //m_msgHandlerProxy.onObjectDestroy();
         }
 
         //#当程序获得或失去焦点;

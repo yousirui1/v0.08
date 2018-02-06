@@ -60,10 +60,10 @@ public class StoreUIPage : UIPage
 		for(int i =0 ; i<tablist.Count; i++)
 		{
 			tabControl.CreateTab(tablist[i].id, tablist[i].tabname, tablist[i].panelPath);
+			checkTab(i);
 		}
 	
 
-		checkTab(0);
 
 		this.gameObject.transform.Find("btn_back").GetComponent<Button>().onClick.AddListener(() =>
 		{
