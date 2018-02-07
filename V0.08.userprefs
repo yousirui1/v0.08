@@ -1,6 +1,27 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/view/UI/LoginUI/RegisterUIPage.cs">
+    <Files>
+      <File FileName="Assets/Scripts/view/UI/Public/PublicUISignInPage.cs" Line="337" Column="8" />
+      <File FileName="Assets/Scripts/app/SavedData.cs" Line="214" Column="21" />
+      <File FileName="Assets/Scripts/view/UI/InfoUI/InfoUIPage.cs" Line="331" Column="4" />
+      <File FileName="Assets/Scripts/view/UI/AstrologyUI/AstrologyUIPage.cs" Line="90" Column="35" />
+      <File FileName="Assets/Scripts/entity/val/ValAstrology.cs" Line="24" Column="23" />
+      <File FileName="Assets/Scripts/entity/val/ConstsVal.cs" Line="36" Column="43" />
+      <File FileName="Assets/Scripts/entity/val/ValCode.cs" Line="18" Column="21" />
+      <File FileName="Assets/Scripts/view/UI/LoadUI/LoadUIPage.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/view/UI/LoginUI/LoginUIPage.cs" Line="71" Column="3" />
+      <File FileName="Assets/Scripts/view/UI/MainUI/MainUIPage.cs" Line="385" Column="13" />
+      <File FileName="Assets/Scripts/view/UI/PackageUI/PackageUIPage.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/view/UI/Public/PublicUITaskPage.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/view/UI/StoreUI/StoreUIPage.cs" Line="103" Column="2" />
+      <File FileName="Assets/Scripts/view/UI/StoreUI/UIStoreItem.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/view/UI/Public/PublicUIPayPage.cs" Line="215" Column="96" />
+      <File FileName="Assets/Scripts/view/UI/GameUI/GameMenuUI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/view/UIFramework/UIPage.cs" Line="50" Column="5" />
+      <File FileName="Assets/Scripts/view/UI/LoginUI/RegisterUIPage.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/mac/project/unity/temp/V0.08/Assets/Scripts/view/ui/MainUIPage.cs" line="161" column="1" />

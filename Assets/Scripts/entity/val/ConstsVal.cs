@@ -33,6 +33,8 @@ namespace tpgm
 
 		public const string val_achieve = "val_achieve.json";
 
+		public const string val_code = "val_code.json";
+
 		/*
 		public const string val_activity = "val_activity.json";
 

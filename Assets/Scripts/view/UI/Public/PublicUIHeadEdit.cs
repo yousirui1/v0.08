@@ -62,7 +62,7 @@ public class PublicUIHeadEdit : UIPage
 
 		this.gameObject.transform.Find ("content/btn_confim").GetComponent<Button> ().onClick.AddListener (() => {
 			//保存头像
-			m_controller.reqThirdUpdateUser (false);
+			m_controller.reqThirdNewUser (false);
 		});
 
 	
@@ -190,7 +190,7 @@ public class PublicUIHeadEdit : UIPage
 		//用于标识是那个接口用于处理接受函数
 		private const int REQ_THIRD_UPDATEUSER = 5;
 
-		public void reqThirdUpdateUser(bool isRetry)
+		public void reqThirdNewUser(bool isRetry)
 		{
 
 			ReqThirdNewUser paramsValObj;
@@ -237,8 +237,8 @@ public class PublicUIHeadEdit : UIPage
 					switch (resp.m_code) {
 					case 200:
 						{
-							Debug.Log (resp.ToString ());
-
+							SavedData.s_instance.m_user.m_head = m_headEdit.head_id;
+							UIPage.ShowPage<InfoUIPage> ();
 						}
 						break;
 

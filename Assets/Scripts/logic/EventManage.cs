@@ -262,7 +262,8 @@ public void OnClick(GameObject btn)
 		break;
 		case ConfigT.chat_btn:
         {
-         	Debug.Log(""+ btn.name);
+         	//Debug.Log(""+ btn.name);
+				Application.LoadLevel("Login");
           	//SetkillData(2, 4, 6);
          }        
 		break;
@@ -276,6 +277,7 @@ public void OnClick(GameObject btn)
 
 		case ConfigT.msg_switch:
         {
+				Application.LoadLevel("Home");
            Debug.Log(""+ btn.name);
         }        
 		break;

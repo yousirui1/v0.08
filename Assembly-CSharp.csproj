@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Resources\Prefabs\UI\GameUI\JoyControl\Script\JoyControl.cs" />
+     <Compile Include="Assets\Scripts\Home.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
      <Compile Include="Assets\Scripts\app\AppUtils.cs" />
      <Compile Include="Assets\Scripts\app\PrefValUpdate.cs" />
@@ -65,6 +66,7 @@
      <Compile Include="Assets\Scripts\entity\val\ErrCode.cs" />
      <Compile Include="Assets\Scripts\entity\val\ValAchieve.cs" />
      <Compile Include="Assets\Scripts\entity\val\ValAstrology.cs" />
+     <Compile Include="Assets\Scripts\entity\val\ValCode.cs" />
      <Compile Include="Assets\Scripts\entity\val\ValFish.cs" />
      <Compile Include="Assets\Scripts\entity\val\ValGlobal.cs" />
      <Compile Include="Assets\Scripts\entity\val\ValSigInAdd.cs" />

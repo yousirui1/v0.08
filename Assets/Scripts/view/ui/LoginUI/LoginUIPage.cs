@@ -39,7 +39,7 @@ public class LoginUIPage : UIPage
 
 
 
-		m_controller = new Controller();
+		m_controller = new Controller(this);
 
 		this.gameObject.transform.Find("btn_register").GetComponent<Button>().onClick.AddListener(() =>
 			{
@@ -68,11 +68,14 @@ public class LoginUIPage : UIPage
 
 	protected override void loadRes(TexCache texCache, ValTableCache valCache)
 	{
+		//code
+		valCache.markPageUseOrThrow<ValCode>(m_pageID, ConstsVal.val_code);
 	}
 
 	protected override void unloadRes(TexCache texCache, ValTableCache valCache)
 	{
-
+		//code
+		valCache.unmarkPageUse(m_pageID, ConstsVal.val_code);
 	}
 
 	//秒定时器
@@ -103,32 +106,31 @@ public class LoginUIPage : UIPage
 
 	}
 
-	class Controller : NetHttp.INetCallback
+	class Controller : BaseController<LoginUIPage>, NetHttp.INetCallback
 	{
 		NetHttp m_netHttp;
+		LoginUIPage m_login;
 
 		PomeloClient m_pClient;
 
-		public Controller()
+		public Controller(LoginUIPage iview):base(null)
 		{
 			m_netHttp = new NetHttp();
 			m_netHttp.setPageNetCallback(this);
-
+			m_login = iview;
 		}
 
 		public void onDestroy()
 		{
 			m_netHttp.setPageNetCallback (null);
-
 			//可能在login页面没有登录
 			if (null != SavedContext.s_client) {
 				SavedContext.s_client.NetWorkStateChangedEvent -= (state) => {
 					Debug.Log (""+state);
 				};
 			}
-
 		}
-
+			
 		//用于标识是那个接口用于处理接受函数
 		private const int REQ_THIRD_LOGIN = 1;
 
@@ -202,7 +204,10 @@ public class LoginUIPage : UIPage
 
 					default:
 						{
-							Debug.Log (resp.m_code);
+							ValTableCache valCache = m_login.getValTableCache();
+							Dictionary<int, ValCode> valDict = valCache.getValDictInPageScopeOrThrow<ValCode>(m_login.m_pageID, ConstsVal.val_code);
+							ValCode val = ValUtils.getValByKeyOrThrow(valDict, resp.m_code);
+							UIPage.ShowPage<PublicUINotice> (val.text);
 						}
 						break;
 

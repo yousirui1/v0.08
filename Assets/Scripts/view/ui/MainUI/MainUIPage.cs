@@ -198,11 +198,14 @@ public class MainUIPage : UIPage
 
 	protected override void loadRes(TexCache texCache, ValTableCache valCache)
 	{
+		//code
+		valCache.markPageUseOrThrow<ValCode>(m_pageID, ConstsVal.val_code);
 	}
 
 	protected override void unloadRes(TexCache texCache, ValTableCache valCache)
 	{
-
+		//code
+		valCache.unmarkPageUse(m_pageID, ConstsVal.val_code);
 	}
 
 
@@ -345,7 +348,7 @@ public class MainUIPage : UIPage
 			switch (data.m_reqTag) {
 			case REQ_THIRD_GETDATA:
 				{
-					RespThirdGetData resp = Utils.bytesToObject<RespThirdGetData>(respData.m_protobufBytes);
+					RespThirdGetData resp = Utils.bytesToObject<RespThirdGetData> (respData.m_protobufBytes);
 					switch (resp.m_code) {
 					case 200:
 						{
@@ -372,6 +375,15 @@ public class MainUIPage : UIPage
 							m_main.Refresh ();
 						}
 						break;
+					default:
+						{
+							ValTableCache valCache = m_main.getValTableCache ();
+							Dictionary<int, ValCode> valDict = valCache.getValDictInPageScopeOrThrow<ValCode> (m_main.m_pageID, ConstsVal.val_code);
+							ValCode val = ValUtils.getValByKeyOrThrow (valDict, resp.m_code);
+							UIPage.ShowPage<PublicUINotice> (val.text);
+						}
+						break;
+
 					}
 				}
 				break;
@@ -391,6 +403,7 @@ public class MainUIPage : UIPage
 				}
 				break;
 			}
+
 
 		}
 

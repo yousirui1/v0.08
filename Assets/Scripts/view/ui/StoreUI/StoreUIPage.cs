@@ -100,12 +100,14 @@ public class StoreUIPage : UIPage
 	{
 		valCache.markPageUseOrThrow<ValGlobal>(m_pageID, ConstsVal.val_global);
 		valCache.markPageUseOrThrow<ValStore>(m_pageID, ConstsVal.val_store);
+	
 	}
 
 	protected override void unloadRes(TexCache texCache, ValTableCache valCache)
 	{
 		valCache.unmarkPageUse(m_pageID, ConstsVal.val_global);
 		valCache.unmarkPageUse(m_pageID, ConstsVal.val_store);
+
 	}
 
 
@@ -131,7 +133,6 @@ public class StoreUIPage : UIPage
 
 	private void CreateItem(ValStore val)
 	{
-		Debug.Log ("CreateItem"+val.classify);
 		GameObject go = GameObject.Instantiate(Item) as GameObject;
 		go.transform.SetParent(Item.transform.parent);
 		go.transform.localScale = Vector3.one;

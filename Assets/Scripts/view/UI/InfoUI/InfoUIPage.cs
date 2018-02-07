@@ -40,8 +40,6 @@ public class InfoUIPage : UIPage
 
 	public override void Awake(GameObject go)
 	{
-		//Init(UIValue.friends_btnID, UIValue.friends_inputID, UIValue.friends_txID, UIValue.friends_imgID);
-
 
 
 		m_controller = new Controller (this);
@@ -135,12 +133,14 @@ public class InfoUIPage : UIPage
 	protected override void loadRes(TexCache texCache, ValTableCache valCache)
 	{
 
-
+		//code
+		valCache.markPageUseOrThrow<ValCode>(m_pageID, ConstsVal.val_code);
 	}
 
 	protected override void unloadRes(TexCache texCache, ValTableCache valCache)
 	{
-
+		//code
+		valCache.unmarkPageUse(m_pageID, ConstsVal.val_code);
 	}
 
 	public const int MSG_HTTP_GETDATA = 1;
@@ -306,7 +306,10 @@ public class InfoUIPage : UIPage
 
 					default:
 						{
-							Debug.Log (resp.m_code);
+							ValTableCache valCache = m_info.getValTableCache();
+							Dictionary<int, ValCode> valDict = valCache.getValDictInPageScopeOrThrow<ValCode>(m_info.m_pageID, ConstsVal.val_code);
+							ValCode val = ValUtils.getValByKeyOrThrow(valDict, resp.m_code);
+							UIPage.ShowPage<PublicUINotice> (val.text);
 						}
 						break;
 

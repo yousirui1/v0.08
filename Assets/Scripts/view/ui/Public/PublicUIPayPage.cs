@@ -26,7 +26,7 @@ public class PublicUIPayPage : UIPage
 		m_controller = new Controller (this);
 
 		this.transform.Find ("content/item/tx_itemhead").GetComponent<Text> ().text = val.name;
-		this.transform.Find("content/item/img_materials").GetComponent<Image>().sprite = TextureManage.getInstance().LoadAtlasSprite("Public/Atlases/Icon/General_icon","General_icon_"+0);
+		this.transform.Find("content/item/img_materials").GetComponent<Image>().sprite = TextureManage.getInstance().LoadAtlasSprite("RawImages/Public/Atlases/Icon/General_icon","General_icon_"+0);
 
 		switch (val.buy_type) {
 		case  0:  //立即购买
@@ -60,7 +60,7 @@ public class PublicUIPayPage : UIPage
 		
 		this.gameObject.transform.Find("content/btn_pay").GetComponent<Button>().onClick.AddListener(() =>
 			{
-				
+				Debug.Log("Pay..............");
 				m_controller.reqThirdGoodsBuy(false,val.id);
 			});
 
@@ -76,7 +76,7 @@ public class PublicUIPayPage : UIPage
 		m_controller = new Controller (this);
 
 		this.transform.Find ("content/item/tx_itemhead").GetComponent<Text> ().text = val.name;
-		this.transform.Find("content/item/img_materials").GetComponent<Image>().sprite = TextureManage.getInstance().LoadAtlasSprite("Public/Atlases/Icon/General_icon","General_icon_"+0);
+		this.transform.Find("content/item/img_materials").GetComponent<Image>().sprite = TextureManage.getInstance().LoadAtlasSprite("RawImages/Public/Atlases/Icon/General_icon","General_icon_"+0);
 
 		switch (val.buy_type) {
 		case  0:  //立即购买
@@ -121,11 +121,14 @@ public class PublicUIPayPage : UIPage
 
 	protected override void loadRes(TexCache texCache, ValTableCache valCache)
 	{
+		//code
+		valCache.markPageUseOrThrow<ValCode>(m_pageID, ConstsVal.val_code);
 	}
 
 	protected override void unloadRes(TexCache texCache, ValTableCache valCache)
 	{
-
+		//code
+		valCache.markPageUseOrThrow<ValCode>(m_pageID, ConstsVal.val_code);
 	}
 
 	class Controller : BaseController<PublicUIPayPage>,NetHttp.INetCallback
@@ -208,7 +211,10 @@ public class PublicUIPayPage : UIPage
 
 					default:
 						{
-							Debug.Log (resp.m_code);
+							ValTableCache valCache = m_pay.getValTableCache ();
+							Dictionary<int, ValCode> valDict = valCache.getValDictInPageScopeOrThrow<ValCode> (m_pay.m_pageID, ConstsVal.val_code);
+							ValCode val = ValUtils.getValByKeyOrThrow (valDict, resp.m_code);
+							UIPage.ShowPage<PublicUINotice> (val.text);
 						}
 						break;
 

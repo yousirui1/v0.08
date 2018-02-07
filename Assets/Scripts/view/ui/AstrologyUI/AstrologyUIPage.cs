@@ -69,6 +69,9 @@ public class AstrologyUIPage : UIPage
 		//全局表
 		valCache.markPageUseOrThrow<ValGlobal>(m_pageID, ConstsVal.val_global);
 
+		//code
+		valCache.markPageUseOrThrow<ValCode>(m_pageID, ConstsVal.val_code);
+
 		//占星
 		valCache.markPageUseOrThrow<ValAstrology>(m_pageID, ConstsVal.val_astrology);
 		
@@ -77,6 +80,8 @@ public class AstrologyUIPage : UIPage
 	protected override void unloadRes(TexCache texCache, ValTableCache valCache)
 	{
 		valCache.unmarkPageUse (m_pageID, ConstsVal.val_global);
+
+		valCache.unmarkPageUse(m_pageID, ConstsVal.val_code);
 
 		valCache.unmarkPageUse (m_pageID, ConstsVal.val_astrology);
 
@@ -155,7 +160,10 @@ public class AstrologyUIPage : UIPage
 
 					default:
 						{
-							Debug.Log (resp.m_code);
+							ValTableCache valCache = m_astrology.getValTableCache();
+							Dictionary<int, ValCode> valDict = valCache.getValDictInPageScopeOrThrow<ValCode>(m_astrology.m_pageID, ConstsVal.val_code);
+							ValCode val = ValUtils.getValByKeyOrThrow(valDict, resp.m_code);
+							UIPage.ShowPage<PublicUINotice> (val.text);
 						}
 						break;
 
